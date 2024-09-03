@@ -26,6 +26,7 @@ import copo_vidro from './src/telas/projeto/tiposDeReciclagens/lixoVerde/copo_vi
 import ReciclarVidro from './src/telas/projeto/tiposDeReciclagens/lixoVerde/ReciclarVidro';
 
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
