@@ -124,7 +124,7 @@ export default function lixoMarrom({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('ReciclarMetal')}
+            onPress={() => navigation.navigate('Reciclar Marrom')}
             style={styles.botaoReciclar}>
             <Text color ="#fff">Como Reciclar</Text>
         </Button>

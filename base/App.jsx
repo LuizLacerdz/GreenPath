@@ -24,6 +24,10 @@ import lixoVerde from './src/telas/projeto/tiposDeReciclagens/lixoVerde/lixoVerd
 import Terrario from './src/telas/projeto/tiposDeReciclagens/lixoVerde/terrario';
 import copo_vidro from './src/telas/projeto/tiposDeReciclagens/lixoVerde/copo_vidro';
 import ReciclarVidro from './src/telas/projeto/tiposDeReciclagens/lixoVerde/ReciclarVidro';
+import lixoLaranja from './src/telas/projeto/tiposDeReciclagens/lixoLaranja/LixoLaranja';
+import ReciclarLaranja from './src/telas/projeto/tiposDeReciclagens/lixoAzul/ReciclarLaranja';
+import ReciclarMarrom from './src/telas/projeto/tiposDeReciclagens/lixoMarrom/ReciclarMarrom';
+import ReciclarVermelho from './src/telas/projeto/tiposDeReciclagens/lixoVermelho/ReciclarVermelho';
 
 
 
@@ -60,10 +64,12 @@ export default function App() {
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#934e35' }, headerTintColor: 'black', }} name= "Casca De Batata" component={cascaDeBatata}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#934e35' }, headerTintColor: 'black', }} name= "Casca De Banana" component={cascaDeBanana}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#934e35' }, headerTintColor: 'black', }} name= "Casca De Laranja" component={cascaDeLaranja}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#934e35' }, headerTintColor: 'black', }} name= "Reciclar Marrom" component={ReciclarMarrom}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Lixo Vermelho' component={lixoVermelho}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Ioio' component={ioio}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Vaso De Planta' component={vasoDePlanta}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Bilboque' component={bilboque}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Recicla vermelho' component={ReciclarVermelho}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#e9e51e'},  headerTintColor: 'black'}} name='Lixo Amarelo' component={lixoAmarelo}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#e9e51e'},  headerTintColor: 'black'}} name='Velas E Lanternas' component={velasELanternas}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#e9e51e'},  headerTintColor: 'black'}} name='vaso Metal' component={vasoMetal}/>
@@ -72,6 +78,9 @@ export default function App() {
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#02df0a'},  headerTintColor: 'black'}} name='Terrário' component={Terrario}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#02df0a'},  headerTintColor: 'black'}} name='Copo de Vidro' component={copo_vidro}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#02df0a'},  headerTintColor: 'black'}} name='Reciclar Vidro' component={ReciclarVidro}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#ff7c02'},  headerTintColor: 'black'}} name='Lixo Laranja' component={lixoLaranja}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#ff7c02'},  headerTintColor: 'black'}} name='Reciclar Pilhas e Baterias' component={ReciclarLaranja}/>
+
               </Stack.Navigator>
           </NavigationContainer>
 

@@ -124,7 +124,7 @@ export default function lixoVermelho({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('ReciclarMetal')}
+            onPress={() => navigation.navigate('Recicla vermelho')}
             style={styles.botaoReciclar}>
             <Text color ="#fff">Como Reciclar</Text>
         </Button>

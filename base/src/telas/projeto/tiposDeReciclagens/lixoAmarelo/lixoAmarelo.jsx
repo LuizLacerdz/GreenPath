@@ -69,7 +69,7 @@ export default function lixoAmarelo({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('VelasELanternas')}
+                onPress={() => navigation.navigate('Velas E Lanternas')}
                 style={styles.botao}>
                 <Text color="#000">Saber Mais..</Text>
               </Button>
@@ -90,7 +90,7 @@ export default function lixoAmarelo({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('vasoMetal')}
+                onPress={() => navigation.navigate('vaso Metal')}
                 style={styles.botao}>
                 <Text color="#000">Saber Mais..</Text>
               </Button>
@@ -103,7 +103,7 @@ export default function lixoAmarelo({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('ReciclarMetal')}
+            onPress={() => navigation.navigate('Reciclar Metal')}
             style={styles.botaoReciclar}>
             <Text color ="#000">Como Reciclar</Text>
         </Button>
