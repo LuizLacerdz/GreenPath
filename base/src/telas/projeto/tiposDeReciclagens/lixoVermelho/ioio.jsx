@@ -15,7 +15,7 @@ const cascaDeBanana = ({navigation}) => {
         <View>
           <Text style={styles.header}>IoIô de Garrafa PET</Text>
         </View>
-        <View style={styles.box}>
+
           <Image
             source={require('../../../../../res/img/ioio.png')}
             style={styles.image}
@@ -51,7 +51,7 @@ const cascaDeBanana = ({navigation}) => {
             amarre no anel dando vários nós para ficar bem preso. Agora deixe
             que ele decore como quiser. Boa diversão.
           </Text>
-        </View>
+
       </ScrollView>
     </View>
   );

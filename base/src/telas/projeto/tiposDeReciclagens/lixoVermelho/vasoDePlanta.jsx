@@ -15,7 +15,6 @@ const vasoDePlanta = ({navigation}) => {
         <View>
           <Text style={styles.header}>Vaso de Planta</Text>
         </View>
-        <View style={styles.box}>
           <Image
             source={require('../../../../../res/img/vaso.png')}
             style={styles.image}
@@ -70,7 +69,6 @@ const vasoDePlanta = ({navigation}) => {
             em um local apropriado para a planta, com a quantidade certa de luz.
             Regue conforme necessário, de acordo com as necessidades da planta.
           </Text>
-        </View>
       </ScrollView>
     </View>
   );

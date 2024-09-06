@@ -8,51 +8,28 @@ import {
   SectionList,
 } from 'react-native';
 
-const bilboque = ({navigation}) => {
+const papelPicado = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View>
-          <Text style={styles.header}>IoIô de Garrafa PET</Text>
+          <Text style={styles.header}>Decoração Papel Picado</Text>
         </View>
-
           <Image
-            source={require('../../../../../res/img/bilboque.png')}
+            source={require('../../../../../res/img/papelPicadDiaDosMortos.jpg')}
             style={styles.image}
           />
-          <Text style={styles.subHeader}>Ingredientes:</Text>
-          <SectionList
-            sections={[
-              {
-                title: 'Bilboque de garrafa PET',
-                data: [
-                  'Garrafa PET',
-                  'Fita adesiva',
-                  'Barbante',
-                  'Papel',
-                  'Tesoura',
-                ],
-              },
-            ]}
-            renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-            renderSectionHeader={({section}) => (
-              <Text style={styles.sectionHeader}>{section.title}</Text>
-            )}
-            keyExtractor={item => `basicListEntry-${item}`}
-          />
+
           <Text style={styles.subHeader}>Modo de Preparo:</Text>
           <Text style={styles.text}>
-            {'\t'} Corte a garrafa pet ao meio e cole fita adesiva na borda,
-            para não machucar o dedo. Você vai usar a parte da garrafa que tem o
-            gargalo. 
-            ● Faça uma bolinha de papel amassado e passe fita adesiva
-            em volta dela, para deixa-la firme. 
-            ● Prenda uma das pontas do
-            barbante na bolinha e outra dentro da garrafa. 
-            ● Jogue o bilboquê
-            para cima, sem soltá-lo. 
-            ● Tente fazer a bolinha cair dentro do
-            brinquedo.
+            {'\t'}O papel picado para o Dia dos Mortos é feito empilhando várias
+            camadas de papel de seda colorido e perfurando-as com cinzel e
+            martelo. {'\n'}
+            {'\t'} O papel picado é uma arte artesanal mexicana que é usada em
+            todo o ano, mas especialmente no Dia dos Mortos. É uma das
+            principais decorações do altar, representando o ar, um dos quatro
+            elementos, e dando cor à mesa. Além disso, o papel picado também é
+            usado nas ruas, simbolizando o vento e a fragilidade da vida.
           </Text>
       </ScrollView>
     </View>
@@ -88,12 +65,11 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 
-  text: {
-    fontSize: 15,
+ text: {
+    fontSize: 20,
     marginLeft: 8,
     marginRight: 5,
   },
-
   box: {
     flex: 1,
     borderStyle: 'solid',
@@ -143,4 +119,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default bilboque;
+export default papelPicado;

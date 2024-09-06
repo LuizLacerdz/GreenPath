@@ -28,30 +28,16 @@ import lixoLaranja from './src/telas/projeto/tiposDeReciclagens/lixoLaranja/Lixo
 import ReciclarLaranja from './src/telas/projeto/tiposDeReciclagens/lixoAzul/ReciclarLaranja';
 import ReciclarMarrom from './src/telas/projeto/tiposDeReciclagens/lixoMarrom/ReciclarMarrom';
 import ReciclarVermelho from './src/telas/projeto/tiposDeReciclagens/lixoVermelho/ReciclarVermelho';
-
+import lixoAzul from './src/telas/projeto/tiposDeReciclagens/lixoAzul/lixoAzul';
+import papelPicado from './src/telas/projeto/tiposDeReciclagens/lixoAzul/papelPicado';
+import papelMache from './src/telas/projeto/tiposDeReciclagens/lixoAzul/papelMache';
+import reciclarAzul from './src/telas/projeto/tiposDeReciclagens/lixoAzul/reciclarAzul';
 
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-      
-  //<Home/>
-  //<Cadastro/>
-  //<Login/>
-  //<CreditCardInfoScreen/>
-  //<ResetSenha/>
-  //<ProfileView/>
-  //<Chat/>
-
-      //  <NavigationContainer>
-      //        <Stack.Navigator initialRouteName='Login'>
-      //            <Stack.Screen name = "Home" component={HomeStart}/>
-      //            <Stack.Screen name = "Cadastrar" component={Cadastrar}/>
-      //            <Stack.Screen name = "Listar" component={Listar}/>
-      //            <Stack.Screen name = "Atualizar" component={Atualizar}/>
-      //        </Stack.Navigator>
-      //    </NavigationContainer>
 
           <NavigationContainer>
               <Stack.Navigator initialRouteName='Home'>
@@ -70,6 +56,10 @@ export default function App() {
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Vaso De Planta' component={vasoDePlanta}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Bilboque' component={bilboque}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ce1446'},  headerTintColor: 'black'}} name='Recicla vermelho' component={ReciclarVermelho}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#567ebb'},  headerTintColor: 'black'}} name='Lixo Azul' component={lixoAzul}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#567ebb'},  headerTintColor: 'black'}} name='Papel Picado' component={papelPicado}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#567ebb'},  headerTintColor: 'black'}} name='Mascara' component={papelMache}/>
+                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#567ebb'},  headerTintColor: 'black'}} name='Reciclar Azul' component={reciclarAzul}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#e9e51e'},  headerTintColor: 'black'}} name='Lixo Amarelo' component={lixoAmarelo}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#e9e51e'},  headerTintColor: 'black'}} name='Velas E Lanternas' component={velasELanternas}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#e9e51e'},  headerTintColor: 'black'}} name='vaso Metal' component={vasoMetal}/>
@@ -80,23 +70,21 @@ export default function App() {
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#02df0a'},  headerTintColor: 'black'}} name='Reciclar Vidro' component={ReciclarVidro}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ff7c02'},  headerTintColor: 'black'}} name='Lixo Laranja' component={lixoLaranja}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ff7c02'},  headerTintColor: 'black'}} name='Reciclar Pilhas e Baterias' component={ReciclarLaranja}/>
-
               </Stack.Navigator>
           </NavigationContainer>
 
-          // <NavigationContainer>
-          //   <Stack.Navigator initialRouteName='AddCard'>
-          //     <Stack.Screen name='AddCard' component={AddCards}/>
-          //     <Stack.Screen name='CreditCardInfoScreen' component={CreditCardInfoScreen}/>
-          //   </Stack.Navigator>
-          // </NavigationContainer>
-
-
-
-        
-
-        
 
   )
 };
+
+
+
+
+
+
+
+
+
+
+
 

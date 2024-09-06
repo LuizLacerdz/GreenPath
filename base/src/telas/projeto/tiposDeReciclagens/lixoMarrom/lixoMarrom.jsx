@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 10,
     backgroundColor: '#934e35',
-    color: 'white',
+    color: '#fff',
     borderRadius: 30,
   },
   container: {

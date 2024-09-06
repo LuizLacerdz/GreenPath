@@ -11,7 +11,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Button} from 'galio-framework';
 import {Text} from '@rneui/themed';
 
-export default function lixoAmarelo({navigation}) {
+export default function lixoAzul({navigation}) {
   const Sidebar = ({isOpen, onClose}) => {
     const navigation = useNavigation();
     const navigateToScreen = screenName => {
@@ -60,52 +60,52 @@ export default function lixoAmarelo({navigation}) {
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
 
-        {/*  Vela e Lanternas */}
+        {/*  Papel Picado */}
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
             <Text style={styles.texto}>
-              Velas e{'\n'}Lanternas
+              Papel{'\n'}Picado
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('VelasELanternas')}
+                onPress={() => navigation.navigate('Papel Picado')}
                 style={styles.botao}>
-                <Text color="#000">Saber Mais..</Text>
+                <Text color="#fff">Saber Mais..</Text>
               </Button>
             </View>
           </View>
           <Image
-            source={require('../../../../../res/img/vela.png')}
+            source={require('../../../../../res/img/papelPicado.png')}
             style={styles.imagem}
           />
         </View>
 
-        {/* Vaso para plantas */}
+        {/* Papel Mache */}
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
             <Text style={styles.texto}>
-              Vaso para{'\n'}Plantas
+              Papel{'\n'} Mache
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('vasoMetal')}
+                onPress={() => navigation.navigate('Mascara')}
                 style={styles.botao}>
-                <Text color="#000">Saber Mais..</Text>
+                <Text color="#fff">Saber Mais..</Text>
               </Button>
             </View>
           </View>
           <Image
-            source={require('../../../../../res/img/vaso_lata.png')}
+            source={require('../../../../../res/img/papelMache.png')}
             style={styles.imagem}
           />
         </View>
 
         <Button
-            onPress={() => navigation.navigate('ReciclarMetal')}
+            onPress={() => navigation.navigate('Reciclar Azul')}
             style={styles.botaoReciclar}>
-            <Text color ="#000">Como Reciclar</Text>
+            <Text color ="#fff">Como Reciclar</Text>
         </Button>
 
       </ScrollView>
@@ -184,8 +184,8 @@ const styles = StyleSheet.create({
   botao: {
     marginTop: 20,
     padding: 10,
-    backgroundColor: '#e9e51e',
-    color: 'white',
+    backgroundColor: '#567ebb',
+    color: '#fff',
     borderRadius: 30,
     
   },
@@ -193,8 +193,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 120,
     padding: 10,
-    backgroundColor: '#e9e51e',
-    color: 'white',
+    backgroundColor: '#567ebb',
+    color: '#fff',
     borderRadius: 30,
   },
   container: {

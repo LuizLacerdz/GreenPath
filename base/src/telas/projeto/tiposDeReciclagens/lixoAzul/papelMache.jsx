@@ -8,29 +8,28 @@ import {
   SectionList,
 } from 'react-native';
 
-const bilboque = ({navigation}) => {
+const papelMache = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View>
-          <Text style={styles.header}>IoIô de Garrafa PET</Text>
+          <Text style={styles.header}>Máscara de papel Mache</Text>
         </View>
 
           <Image
-            source={require('../../../../../res/img/bilboque.png')}
+            source={require('../../../../../res/img/mascara.jpg')}
             style={styles.image}
           />
           <Text style={styles.subHeader}>Ingredientes:</Text>
           <SectionList
             sections={[
               {
-                title: 'Bilboque de garrafa PET',
+                title: 'Máscara de Papel Mache',
                 data: [
-                  'Garrafa PET',
-                  'Fita adesiva',
-                  'Barbante',
                   'Papel',
-                  'Tesoura',
+                  'Cola Branca',
+                  'Água',
+                  'Uma base para Moldar, como arame ou estrutura de papelão',
                 ],
               },
             ]}
@@ -42,17 +41,19 @@ const bilboque = ({navigation}) => {
           />
           <Text style={styles.subHeader}>Modo de Preparo:</Text>
           <Text style={styles.text}>
-            {'\t'} Corte a garrafa pet ao meio e cole fita adesiva na borda,
-            para não machucar o dedo. Você vai usar a parte da garrafa que tem o
-            gargalo. 
-            ● Faça uma bolinha de papel amassado e passe fita adesiva
-            em volta dela, para deixa-la firme. 
-            ● Prenda uma das pontas do
-            barbante na bolinha e outra dentro da garrafa. 
-            ● Jogue o bilboquê
-            para cima, sem soltá-lo. 
-            ● Tente fazer a bolinha cair dentro do
-            brinquedo.
+            {'\t'} Prepare a Pasta: Em um recipiente, misture a cola branca com
+            água em uma proporção de aproximadamente 50/50. {'\n'} Adicione pedaços de
+            papel rasgado ou picado à mistura e mexa até obter uma pasta
+            uniforme e maleável. {'\n'} Molde a Peça: Usando a base para moldar, comece
+            a moldar a pasta de acordo com o design desejado. Se estiver usando
+            arame, você pode dar forma e estrutura à peça antes de adicionar a
+            pasta. {'\n'} Construa em Camadas: Aplique a pasta em camadas sobre a base,
+            alisando cada camada antes de adicionar a próxima. {'\n'} Isso ajudará a
+            criar uma peça resistente e durável. Lembre-se de deixar a peça
+            secar entre as camadas. {'\n'} Detalhes e Acabamentos: Após a secagem
+            completa, você pode lixar as arestas, adicionar detalhes e texturas
+            extras conforme desejado. {'\n'} Em seguida, pinte e verniz a peça para dar
+            vida às suas criações.
           </Text>
       </ScrollView>
     </View>
@@ -88,8 +89,8 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 
-  text: {
-    fontSize: 15,
+ text: {
+    fontSize: 20,
     marginLeft: 8,
     marginRight: 5,
   },
@@ -143,4 +144,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default bilboque;
+export default papelMache;
