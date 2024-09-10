@@ -3,10 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 
-import Login from './src/telas/projeto/login/Login';
-import Cadastro from './src/telas/projeto/cadastro/Cadastro';
 import Home from './src/telas/projeto/home/Home';
-import ResetSenha from './src/telas/projeto/resetSenha/Reset';
 import Noticias from './src/telas/projeto/noticias/noticias';
 import lixoMarrom from './src/telas/projeto/tiposDeReciclagens/lixoMarrom/lixoMarrom';
 import cascaDeBatata from './src/telas/projeto/tiposDeReciclagens/lixoMarrom/cascaDeBatata';
@@ -34,6 +31,7 @@ import papelMache from './src/telas/projeto/tiposDeReciclagens/lixoAzul/papelMac
 import reciclarAzul from './src/telas/projeto/tiposDeReciclagens/lixoAzul/reciclarAzul';
 
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -41,9 +39,6 @@ export default function App() {
 
           <NavigationContainer>
               <Stack.Navigator initialRouteName='Home'>
-                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#E4F6F2' }, headerTintColor: 'black', }} name = "Login" component={Login}/>
-                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#E4F6F2' }, headerTintColor: 'black', }} name = "Cadastro" component={Cadastro}/>
-                  <Stack.Screen options={{ headerStyle: { backgroundColor: '#E4F6F2' }, headerTintColor: 'black', }} name = "ResetSenha" component={ResetSenha}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#E4F6F2' }, headerTintColor: 'black', }} name = "Home" component={Home}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#E4F6F2' }, headerTintColor: 'black', }} name= "Noticias" component={Noticias}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#934e35' }, headerTintColor: 'black', }} name= "Lixo Marrom" component={lixoMarrom}/>
