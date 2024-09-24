@@ -29,6 +29,7 @@ import lixoAzul from './src/telas/projeto/tiposDeReciclagens/lixoAzul/lixoAzul';
 import papelPicado from './src/telas/projeto/tiposDeReciclagens/lixoAzul/papelPicado';
 import papelMache from './src/telas/projeto/tiposDeReciclagens/lixoAzul/papelMache';
 import reciclarAzul from './src/telas/projeto/tiposDeReciclagens/lixoAzul/reciclarAzul';
+import Map from './src/telas/projeto/mapa/mapa';
 
 
 
@@ -36,6 +37,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
+
 
           <NavigationContainer>
               <Stack.Navigator initialRouteName='Home'>
