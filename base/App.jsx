@@ -38,6 +38,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
 
+    //<Map/>
 
           <NavigationContainer>
               <Stack.Navigator initialRouteName='Home'>
@@ -68,7 +69,7 @@ export default function App() {
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ff7c02'},  headerTintColor: 'black'}} name='Lixo Laranja' component={lixoLaranja}/>
                   <Stack.Screen options={{ headerStyle: { backgroundColor: '#ff7c02'},  headerTintColor: 'black'}} name='Reciclar Pilhas e Baterias' component={ReciclarLaranja}/>
               </Stack.Navigator>
-          </NavigationContainer>
+          </NavigationContainer> 
 
 
   )
