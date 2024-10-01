@@ -1,1 +1,8 @@
 Backend/node_modules
+
+
+#react-native-geolocation
+#npm install @react-native-community/geolocation --save
+
+#react-native-maps
+#npm install react-native-maps

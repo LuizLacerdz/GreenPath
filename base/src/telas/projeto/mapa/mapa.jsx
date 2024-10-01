@@ -6,8 +6,8 @@ import {
   PermissionsAndroid,
   Dimensions,
 } from 'react-native';
-// import MapView, {Marker} from 'react-native-maps';
-// import Geolocation from '@react-native-community/geolocation';
+import MapView, {Marker} from 'react-native-maps';
+import Geolocation from '@react-native-community/geolocation';
 
 const {width, height} = Dimensions.get('screen');
 
