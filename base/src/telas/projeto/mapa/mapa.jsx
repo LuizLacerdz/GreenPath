@@ -1,11 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  StyleSheet,
-  View,
-  Platform,
-  PermissionsAndroid,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, View, Platform, PermissionsAndroid, Dimensions } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 
@@ -42,7 +36,7 @@ export default function Map() {
     );
   }
 
-  function nemMarker(e) {
+  function newMarker(e) {
     //*console.log(e.nativeEvent.coords.coordinate.latitude);
 
     let dados = {
