@@ -45,7 +45,7 @@ export default function Map() {
         latitude: e.nativeEvent.coords.coordinate.latitude,
         longitude: e.nativeEvent.coords.coordinate.longitude,
       },
-      pinColor: '#ff0000',
+      pinColor: '#green',
     };
 
     SetRegion({
@@ -66,7 +66,7 @@ export default function Map() {
             ? PermissionsAndroid.request(
                 PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
               ).then(() => {
-                console.log('permission granted');
+                console.log('Permissão Garantida !');
               })
             : '';
         }}
