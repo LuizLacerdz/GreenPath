@@ -1,320 +1,156 @@
-import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {Button} from 'galio-framework';
-import {Text, Header} from '@rneui/themed';
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 
-export default function Home({navigation}) {
-  const Sidebar = ({isOpen, onClose}) => {
-    const navigation = useNavigation();
-    const navigateToScreen = screenName => {
-      navigation.navigate(screenName);
-      onClose();
-    };
 
-    return (
-      <View
-        style={[
-          styles.sidebarContainer,
-          {transform: [{translateX: isOpen ? 0 : -300}]},
-        ]}>
-        <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-          <Text style={styles.closeButtonText}>Fechar</Text>
-        </TouchableOpacity>
 
-        <View style={styles.sidebarContent}>
-          <Text style={styles.sidebarTitle}>Login</Text>
-          <TouchableOpacity
-            style={styles.sidebarItem}
-            onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.sidebarItemText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.sidebarItem}
-            onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.sidebarItemText}>Registrar</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  };
-
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-  };
-
+const HomeScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.scrollview}>
-      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-      <ScrollView>
-        <View style={styles.title}>
-          <Text style={styles.titleText}>
-            Seja bem vindo (a){'\n'}ao Green Path!
-          </Text>
-        </View>
+    <SafeAreaView style={styles.container}>
+    <ScrollView>
+    
+      <View>
+      {/* Header */}
+      <View style={styles.header}>
+        <Image source={require('../../../../res/img/logo.png')} style={styles.logo} />
+        <Image source={require('../../../../res/img/fotoDePerfil.png')} style={styles.profilePic} />
+      </View>
 
-        <View style={styles.containerLearn}>
-          <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Proteja nosso mundo{'\n'} da Poluição!
-            </Text>
-            <View style={styles.buttoncontainer}>
-              <Button
-                onPress={() => navigation.navigate('noticias')}
-                style={styles.botao}>
-                Saber Mais..
-              </Button>
-            </View>
-          </View>
-          <Image
-            source={require('../../../../res/img/download-removebg-preview.png')}
-            style={styles.imagem}
-          />
-        </View>
+      {/* Greeting */}
+      <Text style={styles.greeting}>Olá, Luiz e Lorenzo</Text>
 
-        <View style={styles.titleS}>
-          <Text style={styles.mainCardTitle}>Tipos de Descartes:</Text>
-        </View>
+      {/* Next Collection Info */}
+      <View style={styles.collectionInfo}>
+        <Text style={styles.collectionText}>
+          A próxima coleta municipal será em <Text style={styles.boldText}>08/12 - 18h</Text>
+        </Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Ver local</Text>
+        </TouchableOpacity>
+      </View>
 
-        {/*CARDS*/}
+      {/* Options */}
+      <View style={styles.options}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
+          <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
+          <Text style={{fontWeight: "bold"}}>Veja pontos de coleta</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Catadores')}>
+          <Image source={require('../../../../res/img/pesquisa.png')} style={styles.icones} />
+          <Text style={{fontWeight: "bold"}}>Encontrar catadores</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
+          <Image source={require('../../../../res/img/reciclagem.png')} style={styles.icones} />
+          <Text style={{fontWeight: "bold"}}>O que posso reciclar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Agendamento')}>
+          <Image source={require('../../../../res/img/calendario.png')} style={styles.icones} />
+          <Text style={{fontWeight: "bold"}}>Coletas agendadas</Text>
+        </TouchableOpacity>
+      </View>
 
-        <View style={styles.containerCards}>
-          <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-            <Button
-              style={styles.card}
-              onPress={() => navigation.navigate('Lixo Marrom')}>
-              <View style={styles.card}>
-                <Image
-                  source={require('../../../../res/img/bote-de-basura2.png')}
-                  style={styles.image}
-                />
-                <View style={styles.content}>
-                  <Text style={styles.titleCard}>Lixo Marrom</Text>
-                  <Text style={styles.description}>Descarte de Orgânicos</Text>
-                </View>
-              </View>
-            </Button>
-
-            <View style={styles.containerCards}>
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                <Button
-                  style={styles.card}
-                  onPress={() => navigation.navigate('Lixo Vermelho')}>
-                  <View style={styles.card}>
-                    <Image
-                      source={require('../../../../res/img/bote-de-basura2.png')}
-                      style={styles.image2}
-                    />
-                    <View style={styles.content}>
-                      <Text style={styles.titleCard}>Lixo Vermelho</Text>
-                      <Text style={styles.description}>
-                        Descarte de Plástico
-                      </Text>
-                    </View>
-                  </View>
-                </Button>
-
-                <View style={styles.containerCards}>
-                  <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                    <Button
-                      style={styles.card}
-                      onPress={() => navigation.navigate('Lixo Azul')}>
-                      <View style={styles.card}>
-                        <Image
-                          source={require('../../../../res/img/bote-de-basura2.png')}
-                          style={styles.image3}
-                        />
-                        <View style={styles.content}>
-                          <Text style={styles.titleCard}>Lixo{'\n'}Azul</Text>
-                          <Text style={styles.description}>
-                            Descarte de Papéis
-                          </Text>
-                        </View>
-                      </View>
-                    </Button>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.containerCards}>
-          <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-            <Button
-              style={styles.card}
-              onPress={() => navigation.navigate('Lixo Amarelo')}>
-              <View style={styles.card}>
-                <Image
-                  source={require('../../../../res/img/bote-de-basura2.png')}
-                  style={styles.image4}
-                />
-                <View style={styles.content}>
-                  <Text style={styles.titleCard}>Lixo Amarelo</Text>
-                  <Text style={styles.description}>Descarte de Metáis</Text>
-                </View>
-              </View>
-            </Button>
-
-            <View style={styles.containerCards}>
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                <Button
-                  style={styles.card}
-                  onPress={() => navigation.navigate('Lixo Verde')}>
-                  <View style={styles.card}>
-                    <Image
-                      source={require('../../../../res/img/bote-de-basura2.png')}
-                      style={styles.image5}
-                    />
-                    <View style={styles.content}>
-                      <Text style={styles.titleCard}>Lixo Verde</Text>
-                      <Text style={styles.description}>Descarte de Vidros</Text>
-                    </View>
-                  </View>
-                </Button>
-
-                <View style={styles.containerCards}>
-                  <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                    <Button
-                      style={styles.card}
-                      onPress={() => navigation.navigate('Lixo Laranja')}>
-                      <View style={styles.card}>
-                        <Image
-                          source={require('../../../../res/img/bote-de-basura2.png')}
-                          style={styles.image6}
-                        />
-                        <View style={styles.content}>
-                          <Text style={styles.titleCard}>Lixo Laranja</Text>
-                          <Text style={styles.description}>
-                            Descarte de Pilhas e Baterias
-                          </Text>
-                        </View>
-                      </View>
-                    </Button>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
+      {/* Schedule Collection */}
+      <TouchableOpacity style={styles.mapButton} onPress={() => navigation.navigate('Reciclagem')}>
+        <Text style={styles.mapButtonText}>Ir para o mapa</Text>
+      </TouchableOpacity>
+      
+      </View>
       </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    
+    
   );
-}
-
-import {StyleSheet} from 'react-native';
+};
 
 const styles = StyleSheet.create({
-  scrollview: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-
-  sidebarContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        backgroundColor: 'black',
-        height: '100%',
-        width: 250,
-        zIndex: 100,
-        elevation: 5,
-        paddingTop: 50,
-  },
-  title: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 10,
-  },
-  titleText: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    margin: 10,
-  },
-  notificationIcon: {
-    marginLeft: 10,
-  },
-  searchBar: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    padding: 10,
-    margin: 10,
-    borderRadius: 50,
-    height: 60,
-  },
-  icon: {
-    width: '8%',
-    maxHeight: 110,
-    resizeMode: 'contain',
-    marginLeft: 90, // Ajustado a margem esquerda para a imagem
-  },
-  containerLearn: {
-    flex: 1,
-    flexDirection: 'row', // Alinha os elementos na horizontal
-    alignItems: 'center',
-    justifyContent: 'space-around', // Distribui o espaço entre os elementos
-    padding: 20, // Adiciona padding ao container
-    backgroundColor: '#E4F6F2',
-    borderRadius: 20,
-    margin: 10,
-  },
-  imagem: {
-    width: '40%',
-    height: 130,
-    resizeMode: 'contain',
-  },
-  texto: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    flex: 1,
-    textAlign: 'left',
-    margin: 10,
-  },
-  botao: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: '#199A8E',
-    color: 'white',
-    borderRadius: 30,
-  },
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: '#E2F3E8',
   },
-  titleSection: {
+  header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  logo: {
+    width: 70,
+    height: 70,
+  },
+  icones: {
+    padding: 10,
+    marginRight: 90,
+  },
+  profilePic: {
+    width: 40,
+    height: 40,
+  },
+  greeting: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginVertical: 10,
+  },
+  collectionInfo: {
+    backgroundColor: '#f9f9f9',
+    padding: 15,
+    borderRadius: 10,
     marginBottom: 20,
   },
-  titleCard: {
-    fontSize: 17,
+  collectionText: {
+    fontSize: 20,
+  },
+  boldText: {
     fontWeight: 'bold',
-    borderTopWidth: 1,
-    marginTop: 1,
   },
   button: {
-    backgroundColor: '#007bff',
-    color: 'white',
+    backgroundColor: '#0A9D3C',
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 16,
+    width: 100,
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: "bold"
+  },
+  options: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    marginBottom: 20,
+  },
+  optionButton: {
+    width: '48%',
+    backgroundColor: '#f9f9f9',
+    padding: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  scheduleText: {
+    fontSize: 16,
+    marginBottom: 10,
+    fontWeight: "bold",
+  },
+  mapButton: {
+    borderWidth: 1,
+    backgroundColor: '#0A9D3C',
     padding: 10,
     borderRadius: 5,
   },
+  mapButtonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: "bold"
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 10,
+  },
   containerCards: {
-    alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
+    flexDirection: 'row',
   },
 
   mainCardTitle: {
@@ -337,11 +173,12 @@ const styles = StyleSheet.create({
     width: 115,
     height: 200,
     borderWidth: 1,
+    flexDirection: 'row',
   },
   image: {
     backgroundColor: '#5D2828',
     height: 100,
-    width: '100%',
+    width: '100',
     resizeMode: 'contain',
   },
   image2: {
@@ -389,5 +226,15 @@ const styles = StyleSheet.create({
   titleS: {
     flexDirection: 'row',
   },
+  card: {
+    margin: 10,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    elevation: 4,
+    width: 115,
+    height: 200,
+    borderWidth: 1,
+  },
 });
 
+export default HomeScreen;
