@@ -5,7 +5,7 @@ import  { Calendar ,  LocaleConfig }  from  'react-native-calendars' ;
 
 
 LocaleConfig.locales['fr'] = {
-  monthNames: [
+  NomeDosMeses: [
     'Janeiro',
     'Feveiro',
     'Março',
@@ -19,10 +19,10 @@ LocaleConfig.locales['fr'] = {
     'Novembro',
     'Dezembro'
   ],
-  monthNamesShort: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-  dayNames: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-  dayNamesShort: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-  today: "Hoje"
+  AbreviaçãoMeses: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+  NomeDia: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+  AbreviaçãoDia: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+  Hoje: "Hoje"
 };
 
 LocaleConfig.defaultLocale = 'fr';
@@ -45,13 +45,13 @@ LocaleConfig.defaultLocale = 'fr';
         textDisabledColor: '#dd99ee'
       }}
     
-  // Specify the current date
+  // Especifique a data atual
   current={'2012-03-01'}
-  // Callback that gets called when the user selects a day
+  // Retorno de chamada que é chamado quando o usuário seleciona um dia
   onDayPress={day => {
     console.log('selected day', day);
   }}
-  // Mark specific dates as marked
+  // Marcar datas específicas como marcadas
   markedDates={{
     '2012-03-01': {selected: true, marked: true, selectedColor: 'blue'},
     '2012-03-02': {marked: true},
@@ -60,10 +60,8 @@ LocaleConfig.defaultLocale = 'fr';
 />
 
 const Agendamento = ({navigation}) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [selectedWeight, setSelectedWeight] = useState('');
-  const [useRegisteredAddress, setUseRegisteredAddress] = useState(false);
   const [observation, setObservation] = useState('');
   const [selected, setSelected] = useState('');
 
@@ -76,13 +74,13 @@ const Agendamento = ({navigation}) => {
         <Text style={styles.title}>Associação dos Catadores de Material Reciclável . ASCAS</Text>
         <Text style={styles.subTitle}>Quando será sua coleta?</Text>
         
-        {/* Calendar would be implemented with a library like react-native-calendars */}
+        {/* O calendário seria implementado com uma biblioteca como react-native-calendars */}
         <Calendar
       onDayPress={day => {
         setSelected(day.dateString);
       }}
       markedDates={{
-        [selected]: {selected: true, disableTouchEvent: true, selectedDotColor: 'orange'}
+        [selected]: {selected: true, disableTouchEvent: true, selectedDotColor: 'green'}
       }}
     />
 
@@ -118,29 +116,18 @@ const Agendamento = ({navigation}) => {
           <Picker.Item label="100kg" value="100kg" />
         </Picker>
 
-        <View style={styles.switchContainer}>
-          <Text style={styles.switchText}>Utilizar endereço e contatos do cadastro</Text>
-          <Switch
-            value={useRegisteredAddress}
-            onValueChange={setUseRegisteredAddress}
-          />
-        </View>
-
         <Text style={styles.subTitle}>Tem alguma observação?</Text>
         <TextInput
           style={styles.input}
-          placeholder="Comente sobre seus itens, horários para recebimento, etc.."
+          placeholder="Comente sobre seus itens"
           value={observation}
           onChangeText={setObservation}
         />
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.buttonText}>Agendar coleta</Text>
         </TouchableOpacity>
-      </View>
 
-      <View style={styles.footer}>
-        {/* Icons would be added here for navigation, using a library like react-native-vector-icons */}
       </View>
     </View>
     </ScrollView>
@@ -159,15 +146,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
-  },
-  logo: {
-    width: 70,
-    height: 70,
-  },
-  profile: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
   },
   card: {
     padding: 20,
@@ -208,6 +186,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
+    marginBottom: 10,
     backgroundColor: '#0A9D3C',
     padding: 15,
     borderRadius: 10,

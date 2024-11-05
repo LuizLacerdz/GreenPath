@@ -412,6 +412,71 @@ const userController = {
         }
     },
 
+    //! Registrar coleta no banco de dados com data
+
+    registerCalendar: async (req, res) => {
+        const { id, calendario, materiais, peso, observacao} = req.body;
+       
+        let data_formatada = calendario.split('/').reverse().join('-');
+        console.log(data_formatada)
+        try {
+            const sql = await clientController.getByIDCalendario(id);
+
+            if (sql.length > 0) {
+                res.status(401).json({ msg: "Já está agendado para esta data, por favor insira uma data diferente" })
+            }
+            else {
+                await clientController.registerCalendar(id, calendario, materiais, peso, observacao);
+
+                res.status(201).json({ msg: "Agendado com sucesso" })
+            }
+        }
+        catch (error) {
+            console.log(error)
+            res.status(500).json({ msg: "Ocorreu um erro durante o agendamento, por favor tente novamente" });
+        }
+    },
+
+    //!Deletar coleta do banco de dados
+
+    deleteAgenda: async (req ,res)=>{
+        try{
+            const sql = await clientController.getByIDAgenda(req.params.id);
+
+            if(sql.length > 0){
+                await clientController.deleteAgenda(req.params.id);
+                res.status(204).json({msg:"Coleta deletada com sucesso"})
+            }
+            else{
+                res.status(401).json({msg:"A Coleta não existe na base de dados"})
+            }
+        }
+        catch(error) {
+            res.status(500).json({error:"Erro ao tentar deteletar a Coleta"})
+        }
+    },
+
+    //! Reagendar coleta
+
+    updateAgenda: async (req, res) => {
+        const {calendario, materiais, peso, observacao} = req.body;
+
+        try{
+            const sql = await clientController.getByIDAgenda(req.params.id);
+
+            if (sql.length > 0) {
+                await clientController.updateAgenda(calendario, materiais, peso, observacao, req.params.id);
+                res.status(200).json({msg: "Coleta reagendada com sucesso !!!"})
+            }
+            else{
+                res.status(401).json({msg:" Erro ao reagendar a coleta"})
+            }
+        }
+        catch(error) {
+            res.status(500).json({error: "Erro ao tentar reagendar a coleta" + error})
+        }
+    },
+
 
 
 

@@ -22,7 +22,7 @@ const Catadores = ({navigation}) => {
           { name: 'Moacir Pereira', type: 'Carro', materials: 'Latas e Plásticos' },
           { name: 'Rodolfo Alves', type: 'Bicicleta', materials: 'Garrafas de Vidro e Plásticos'},
         ].map((person, index) => (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Perfil1')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Perfil')}>
           <View key={index} style={styles.card}>
             <Image source={require('../../../../res/img/perfilMasc.png')} style={styles.veraLucia}/>
             <View>

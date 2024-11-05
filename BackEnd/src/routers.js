@@ -32,10 +32,15 @@ router.get('/api/read', clientController.listAllUsers); // Rota para listar todo
 
 //* SENAI
 
-router.post('/api/validateprojeto' , clientController.loginProjetoSenai) //*validar login Projeto Senai
-router.post('/api/cadastroprojetosenai', clientController.registerProjetoSenai) //*Cadastrar novo usuario Projeto
-router.post('/api/resetsenhaprojeto', clientController.resetPassworldProjetoSenai) //*Resetar a senha projeto
+// router.post('/api/validateprojeto' , clientController.loginProjetoSenai) //*validar login Projeto Senai
+// router.post('/api/cadastroprojetosenai', clientController.registerProjetoSenai) //*Cadastrar novo usuario Projeto
+// router.post('/api/resetsenhaprojeto', clientController.resetPassworldProjetoSenai) //*Resetar a senha projeto
 
+//* Green_Path
+
+router.post('/api/cadastroagenda', clientController.registerCalendar) //*Cadastrar nova coleta
+router.delete('/api/deletecoleta', clientController.deleteAgenda) //* deletar coleta
+router.update('/api/updatecoleta', clientController.updateAgenda) //* atualizar coleta
 module.exports = router;
 
 

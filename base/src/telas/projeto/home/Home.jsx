@@ -23,8 +23,8 @@ const HomeScreen = ({navigation}) => {
         <Text style={styles.collectionText}>
           A próxima coleta municipal será em <Text style={styles.boldText}>08/12 - 18h</Text>
         </Text>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Ver local</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Coletas Agendadas')}>
+          <Text style={styles.buttonText}>Ver coletas</Text>
         </TouchableOpacity>
       </View>
 
@@ -34,11 +34,11 @@ const HomeScreen = ({navigation}) => {
           <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold"}}>Veja pontos de coleta</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Catadores')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Buscar')}>
           <Image source={require('../../../../res/img/pesquisa.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold"}}>Encontrar catadores</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Agendar')}>
           <Image source={require('../../../../res/img/reciclagem.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold"}}>O que posso reciclar</Text>
         </TouchableOpacity>
@@ -72,22 +72,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  logo: {
-    width: 70,
-    height: 70,
-  },
+
   icones: {
     padding: 10,
     marginRight: 90,
-  },
-  profilePic: {
-    width: 40,
-    height: 40,
   },
   greeting: {
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
+    color: 'black',
   },
   collectionInfo: {
     backgroundColor: '#f9f9f9',
@@ -234,6 +228,14 @@ const styles = StyleSheet.create({
     width: 115,
     height: 200,
     borderWidth: 1,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+  },
+  profilePic: {
+    width: 45,
+    height: 45,
   },
 });
 

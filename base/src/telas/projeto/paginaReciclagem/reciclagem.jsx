@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet,ScrollView,SafeAreaView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet,ScrollView,SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // Example icon library
 
 const Reciclagem = ({navigation}) => {
@@ -7,63 +7,59 @@ const Reciclagem = ({navigation}) => {
     <SafeAreaView>
     <ScrollView>
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Image source={require('../../../../res/img/logo.png')} style={styles.logo} />
-        <Image source={require('../../../../res/img/fotoDePerfil.png')} style={styles.profilePic} />
-      </View>
+
 
       {/* Title */}
       <Text style={styles.title}>Resíduos que você pode separar para coleta:</Text>
 
       {/* Categories */}
       <View style={styles.categories}>
-        <View style={styles.categoryCard}>
+      <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Azul')}>
           <Image source={require('../../../../res/img/placa_papel.png')} style={styles.icones} />
           <Text style={styles.categoryTitle}>Papel</Text>
           <Text style={styles.categoryDescription}>
             Caixas ou pedaços de Papelão, Jornais, Revistas, Folhas, etc
           </Text>
-        </View>
-        <View style={styles.categoryCard}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Vermelho')}>
           <Image source={require('../../../../res/img/placa_plástico.png')} style={styles.icones} />
           <Text style={styles.categoryTitle}>Plástico</Text>
           <Text style={styles.categoryDescription}>
             Embalagens, garrafas PET, potes, canudos, tampinhas, etc
           </Text>
-        </View>
-        <View style={styles.categoryCard}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Verde')}>
           <Image source={require('../../../../res/img/placa_vidro.png')} style={styles.icones} />
           <Text style={styles.categoryTitle}>Vidro</Text>
           <Text style={styles.categoryDescription}>
             Garrafas, frascos e recipientes no geral
           </Text>
-        </View>
-        <View style={styles.categoryCard}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Marrom')}>
           <Image source={require('../../../../res/img/placa_orgânico.png')} style={styles.icones} />
           <Text style={styles.categoryTitle}>Orgânico</Text>
           <Text style={styles.categoryDescription}>
             Sobras de Alimentos
           </Text>
-        </View>
-        <View style={styles.categoryCard}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Laranja')}>
           <Image source={require('../../../../res/img/placa_pilhas.png')} style={styles.icones} />
           <Text style={styles.categoryTitle}>Pilhas</Text>
           <Text style={styles.categoryDescription}>
             Pilhas, Baterias
           </Text>
-        </View>
-        <View style={styles.categoryCard}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Amarelo')}>
           <Image source={require('../../../../res/img/placa_metal.png')} style={styles.icones} />
           <Text style={styles.categoryTitle}>Metal</Text>
           <Text style={styles.categoryDescription}>
             Latas, arames, ferramentas e utensílios de cozinha
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
 
       {/* Back Button */}
-      <TouchableOpacity style={styles.ReturnButton} onPress={() => navigation.navigate('HomeScreen')}>
+      <TouchableOpacity style={styles.ReturnButton} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.ReturnButtonText}>Voltar</Text>
       </TouchableOpacity>
 
@@ -148,6 +144,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#0A9D3C',
     padding: 10,
     borderRadius: 5,
+  },
+    ReciclagemButton: {
+    padding: 10,
+    borderRadius: 5,
+    height: 100,
   },
   ReturnButtonText: {
     color: 'white',

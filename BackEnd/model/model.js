@@ -1,4 +1,4 @@
-const connection = require("../config/db")
+const connction = require("../config/db")
 const bcrypt = require('bcrypt');
 const salt = 10;
 
@@ -233,6 +233,45 @@ const userModel = {
         const [result] = await connection.query("UPDATE cadastro SET senha=? WHERE email=?", [senha, email])
         .catch(erro => console.log(erro))
         return result;
+    },
+
+
+
+    //Green_Path
+
+    //* Pegar o ID
+    getByIDCalendario: async (id) => {
+        const [result] = await connection.query("SELECT * FROM agenda WHERE id=?",[id])
+        .catch(erro => console.log(erro));
+        return result
+    },
+
+    //* Cadastrar Calendario
+    registerCalendar: async(id, calendario, materiais, peso, observacao) => {
+         const [result] = await connection.query("INSERT INTO agenda values(?, ?, ?, ?, ?)" , [id, calendario, materiais, peso, observacao])
+         .catch(erro => console.log(erro));
+         return result
+    },
+
+    //! Pegar o ID da Agenda
+    getByIDAgenda: async (id) => {
+        const [result] = await connection.query("SELECT * FROM agenda WHERE id=?",[id])
+        .catch(erro => console.log(erro));
+        return result
+    },
+
+    //! Deletar da tabela agenda
+     deleteAgenda: async(id)=>{
+        const [result] = await connection.query("DELETE FROM agenda where id=?",[id])
+        .catch(erro => console.log(erro));
+        return result
+    },
+
+    //! Reagendar coleta
+    updateAgenda: async(calendario, materiais, peso, observacao, id) => {
+        const [result] = await connection.query("UPDATE agenda SET calendario=?, materiais=?, peso=?, observacao=? WHERE id=?", [calendario, materiais, peso, observacao, id])
+        .catch(erro  => console.log(erro));
+        return result
     },
     
 

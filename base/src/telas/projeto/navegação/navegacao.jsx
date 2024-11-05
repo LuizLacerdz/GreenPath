@@ -2,12 +2,13 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View } from 'react-native';
+import { CleanTabBar } from 'react-navigation-tabbar-collection';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-
-import HomeScreen from './src/telas/projeto/home/home';
-import Agendamento from './src/telas/projeto/agendamento/agendamento';
-import Catadores from './src/telas/projeto/catadores/Catadores';
-import Reciclagem from './src/telas/projeto/paginaReciclagem/reciclagem';
+import HomeScreen from '../home/Home';
+import Agendamento from '../agendamento/agendamento';
+import Catadores from '../catadores/Catadores';
+import Reciclagem from '../paginaReciclagem/reciclagem';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +17,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Home"
+        tabBar={(props) => <CleanTabBar {...props} />}
       >
         <Tab.Screen
           name="Home"
@@ -32,33 +34,33 @@ const App = () => {
           name="Catadores"
           component={Catadores}
           options={{
-            title: 'Home',
+            title: 'Catadores',
             icon: ({ focused, color, size }) => (
-              <Icon name="home" size={20} color={'#000'} />
+               <Icon name="home" size={20} color={'#000'} />
             ),
-            color: 'primary',
+            color: 'info',
           }}
         />
         <Tab.Screen
           name="Reciclagem"
           component={Reciclagem}
           options={{
-            title: 'Home',
+            title: 'Reciclagem',
             icon: ({ focused, color, size }) => (
-              <Icon name="home" size={20} color={'#000'} />
+               <Icon name="home" size={20} color={'#000'} />
             ),
-            color: 'primary',
+            color: 'warning',
           }}
         />
         <Tab.Screen
           name="Agenda"
           component={Agendamento}
           options={{
-            title: 'Home',
+            title: 'Agenda',
             icon: ({ focused, color, size }) => (
-              <Icon name="home" size={20} color={'#000'} />
+               <Icon name="home" size={20} color={'#000'} />
             ),
-            color: 'primary',
+            color: 'danger',
           }}
         />
       </Tab.Navigator>
