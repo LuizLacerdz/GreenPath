@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-//Importar as telas
+//IIMPORT DAS TELAS
 import HomeScreen from './src/telas/projeto/home/home';
 import Catadores from './src/telas/projeto/catadores/Catadores';
 import Agendamento from './src/telas/projeto/agendamento/agendamento';

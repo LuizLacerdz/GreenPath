@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {Calendar, DateData, LocaleConfig} from 'react-native-calendars';
 import {ptBR} from './localeCalendarConfig';
@@ -19,9 +27,9 @@ export default function Agendamento({navigation}) {
         <View style={styles.container}>
           <View style={styles.content}>
             <Text style={styles.title}>
-              Associação dos Catadores de Material Reciclável . ASCAS
+              Associação de Reciclagem
             </Text>
-
+            {/* CALENDARIO */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Quando será sua coleta?</Text>
               <Calendar
@@ -53,11 +61,14 @@ export default function Agendamento({navigation}) {
                     [day.dateString]: {selected: true},
                   }
                 }
-      />
-
-      <Text style={styles.selected}>Data selecionada: {day?.dateString}</Text>
+              />
+              <Text style={styles.selected}>
+                Data selecionada: {day?.dateString}
+              </Text>
             </View>
+            
 
+            {/* MATERIAIS */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
                 Quais materiais serão coletados?
@@ -79,6 +90,8 @@ export default function Agendamento({navigation}) {
               </View>
             </View>
 
+
+            {/* PESO */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
                 Qual o peso aproximado da sua separação?
@@ -99,6 +112,8 @@ export default function Agendamento({navigation}) {
               </Picker>
             </View>
 
+
+            {/* OBSERVAÇÃO */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Tem alguma observação?</Text>
               <TextInput
@@ -145,8 +160,9 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 18,
+    fontSize: 21,
     fontWeight: 'bold',
+    color: 'black',
     marginBottom: 16,
     textAlign: 'center',
     padding: 10,
