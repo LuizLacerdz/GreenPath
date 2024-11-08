@@ -4,7 +4,7 @@ import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
-const PontosDeReciclagem = ({navigation}) => {
+export default function PontosDeReciclagem ({navigation}){
   return (
     <View style={styles.container}>
       <MapView 
@@ -72,5 +72,3 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-export default PontosDeReciclagem;

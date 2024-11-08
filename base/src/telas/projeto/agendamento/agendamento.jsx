@@ -1,218 +1,188 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput, Switch, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
-import  { Calendar ,  LocaleConfig }  from  'react-native-calendars' ;
+import React, {useState} from 'react';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import {Picker} from '@react-native-picker/picker';
+import {Calendar, DateData, LocaleConfig} from 'react-native-calendars';
+import {ptBR} from './localeCalendarConfig';
 
+LocaleConfig.locales['pt-br'] = ptBR;
+LocaleConfig.defaultLocale = 'pt-br';
 
-LocaleConfig.locales['fr'] = {
-  NomeDosMeses: [
-    'Janeiro',
-    'Feveiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
-    'Julho',
-    'Agosto',
-    'Setembro',
-    'Outubro',
-    'Novembro',
-    'Dezembro'
-  ],
-  AbreviaçãoMeses: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-  NomeDia: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-  AbreviaçãoDia: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-  Hoje: "Hoje"
-};
-
-LocaleConfig.defaultLocale = 'fr';
-
- <Calendar
-  // Customizar a aparencia do calendario
-  style={{
-    borderWidth: 1,
-    borderColor: 'gray',
-    height: 350,
-  }}
-  theme={{
-        backgroundColor: '#ffffff',
-        calendarBackground: '#ffffff',
-        textSectionTitleColor: '#b6c1cd',
-        selectedDayBackgroundColor: '#00adf5',
-        selectedDayTextColor: '#ffffff',
-        todayTextColor: '#00adf5',
-        dayTextColor: '#2d4150',
-        textDisabledColor: '#dd99ee'
-      }}
-    
-  // Especifique a data atual
-  current={'2024-22-08'}
-  // Retorno de chamada que é chamado quando o usuário seleciona um dia
-  onDayPress={day => {
-    console.log('selected day', day);
-  }}
-  // Marcar datas específicas como marcadas
-  markedDates={{
-    '2012-03-01': {selected: true, marked: true, selectedColor: 'blue'},
-    '2012-03-02': {marked: true},
-    '2012-03-03': {selected: true, marked: true, selectedColor: 'blue'}
-  }}
-/>
-
-const Agendamento = ({ navigation }) => {
-  const [selectedMaterials, setSelectedMaterials] = useState([]);
-  const [selectedWeight, setSelectedWeight] = useState('');
+export default function Agendamento({navigation}) {
   const [observation, setObservation] = useState('');
-  const [selected, setSelected] = useState('');
+  const [selectWeight, setselectWeight] = useState();
+  const [selectMaterial, setSelectMaterial] = useState();
+  const [day, setDay] = useState();
 
   return (
     <SafeAreaView>
-    <ScrollView>
-    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <Text style={styles.title}>
+              Associação dos Catadores de Material Reciclável . ASCAS
+            </Text>
 
-      <View style={styles.card}>
-        <Text style={styles.title}>Associação dos Catadores de Material Reciclável . ASCAS</Text>
-        <Text style={styles.subTitle}>Quando será sua coleta?</Text>
-        
-        {/* O calendário seria implementado com uma biblioteca como react-native-calendars */}
-        <Calendar
-      onDayPress={day => {
-        setSelected(day.dateString);
-      }}
-      markedDates={{
-        [selected]: {selected: true, disableTouchEvent: true, selectedDotColor: 'green'}
-      }}
-    />
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Quando será sua coleta?</Text>
+              <Calendar
+                style={styles.Calendar}
+                headerStyle={{
+                  borderBottomWidth: 0.5,
+                  borderBottomColor: 'white',
+                  paddingBottom: 10,
+                  marginBottom: 10,
+                }}
+                theme={{
+                  textMonthFontSize: 18,
+                  monthTextColor: '#0A9D3C',
+                  todayTextColor: '#0A9D3C',
+                  selectedDayBackgroundColor: '#0A9D3C',
+                  selectedDayTextColor: 'white',
+                  arrowColor: '#0A9D3C',
+                  textDayStyle: {color: 'black'},
+                  textDisabledColor: '#ADADAD',
+                }}
+                //DATA MINIMA
+                minDate={new Date().toDateString()}
+                //SUMIR COM AS DATAS ANTERIORES
+                hideExtraDays={true}
+                onDayPress={setDay}
+                //MARCAR AS DATAS SELECIONADAS
+                markedDates={
+                  day && {
+                    [day.dateString]: {selected: true},
+                  }
+                }
+      />
 
-        <Text style={styles.subTitle}>Quais materiais serão coletados?</Text>
-        <Picker
-          selectedValue={selectedMaterials}
-          onValueChange={(itemValue) => setSelectedMaterials(itemValue)}
-          style={styles.picker}
-        >
-          <Picker.Item label="Metal" value="metal" />
-          <Picker.Item label="Vidro" value="vidro" />
-          <Picker.Item label="Plástico" value="plastico" />
-          <Picker.Item label="Orgânico" value="organico" />
-          <Picker.Item label="Papel" value="papel" />
-          <Picker.Item label="Laranja" value="laranja" />
-        </Picker>
+      <Text style={styles.selected}>Data selecionada: {day?.dateString}</Text>
+            </View>
 
-        <Text style={styles.subTitle}>Qual o peso aproximado da sua separação?</Text>
-        <Picker
-          selectedValue={selectedWeight}
-          onValueChange={(itemValue) => setSelectedWeight(itemValue)}
-          style={styles.picker}
-        >
-          <Picker.Item label="10kg" value="10kg" />
-          <Picker.Item label="20kg" value="20kg" />
-          <Picker.Item label="30kg" value="30kg" />
-          <Picker.Item label="40kg" value="40kg" />
-          <Picker.Item label="50kg" value="50kg" />
-          <Picker.Item label="60kg" value="60kg" />
-          <Picker.Item label="70kg" value="70kg" />
-          <Picker.Item label="80kg" value="80kg" />
-          <Picker.Item label="90kg" value="90kg" />
-          <Picker.Item label="100kg" value="100kg" />
-        </Picker>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                Quais materiais serão coletados?
+              </Text>
 
-        <Text style={styles.subTitle}>Tem alguma observação?</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Comente sobre seus itens"
-          value={observation}
-          onChangeText={setObservation}
-        />
+              <View style={styles.pickerContainer}>
+                <Picker
+                  selectedValue={selectMaterial}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setSelectMaterial(itemValue)
+                  }>
+                  <Picker.Item label="Vidro" value="Vidro" />
+                  <Picker.Item label="Metal" value="Metal" />
+                  <Picker.Item label="Papel" value="Papel" />
+                  <Picker.Item label="Plástico" value="Plástico" />
+                  <Picker.Item label="Orgânico" value="Orgânico" />
+                  <Picker.Item label="Pilhas" value="Pilhas" />
+                </Picker>
+              </View>
+            </View>
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
-          <Text style={styles.buttonText}>Agendar coleta</Text>
-        </TouchableOpacity>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                Qual o peso aproximado da sua separação?
+              </Text>
+            </View>
 
-      </View>
-    </View>
-    </ScrollView>
+            <View style={styles.pickerContainer}>
+              <Picker
+                selectedValue={selectWeight}
+                onValueChange={(itemValue, itemIndex) =>
+                  setselectWeight(itemValue)
+                }>
+                <Picker.Item label="10kg" value="10kg" />
+                <Picker.Item label="20kg" value="20kg" />
+                <Picker.Item label="30kg" value="30kg" />
+                <Picker.Item label="40kg" value="40kg" />
+                <Picker.Item label="50kg" value="50kg" />
+              </Picker>
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Tem alguma observação?</Text>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Comente sobre seus itens, horários para recebimento, etc."
+                value={observation}
+                onChangeText={setObservation}
+              />
+            </View>
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate('Home')}>
+              <Text style={styles.buttonText}>Agendar coleta</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#E2F3E8',
+    backgroundColor: '#fff',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
+    padding: 16,
   },
-  card: {
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: '#f9f9f9',
-    marginBottom: 20,
+  logo: {
+    width: 40,
+    height: 40,
   },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  subTitle: {
-    fontSize: 16,
-    marginVertical: 10,
-  },
-  calendarText: {
-    fontSize: 14,
-    marginBottom: 20,
-  },
-  picker: {
-    height: 50,
-    marginBottom: 20,
-  },
-  switchContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 10,
-  },
-  switchText: {
-    fontSize: 16,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 20,
-  },
-  button: {
-    marginBottom: 10,
-    backgroundColor: '#0A9D3C',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    paddingVertical: 10,
-    borderTopWidth: 1,
-    borderTopColor: '#ccc',
-  },
-  profilePic: {
+  profile: {
     width: 40,
     height: 40,
     borderRadius: 20,
   },
+  content: {
+    flex: 1,
+    padding: 16,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    textAlign: 'center',
+    padding: 10,
+  },
+  section: {
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    fontSize: 19,
+    marginBottom: 8,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    padding: 10,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    borderRadius: 8,
+  },
+  button: {
+    backgroundColor: '#0A9D3C',
+    color: 'white',
+    padding: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
 
-
- 
+  pickerContainer: {
+    borderColor: 'lightBlue',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 2,
+  },
 });
-
-export default Agendamento;

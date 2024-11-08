@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 
 
-const HomeScreen = ({navigation}) => {
+export default function HomeScreen ({navigation}){
   return (
     <SafeAreaView style={styles.container}>
     <ScrollView>
@@ -232,4 +232,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Link } from 'react-native';
 
 
-const Perfil1 = ({navigation}) => {
+export default function Perfil1 ({navigation}){
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
@@ -156,4 +156,3 @@ const styles = StyleSheet.create({
 
 });
 
-export default Perfil1;

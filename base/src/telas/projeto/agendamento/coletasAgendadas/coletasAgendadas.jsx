@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ColetasAgendadas = ({ navigation }) => {
+export default function ColetasAgendadas ({ navigation }) {
   return (
     <View style={styles.container}>
       
@@ -119,4 +119,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ColetasAgendadas;

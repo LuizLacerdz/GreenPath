@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
 
-const Catadores = ({navigation}) => {
+export default function Catadores({navigation}){
   return (
     <View style={styles.container}>
     
@@ -130,5 +130,3 @@ const styles = StyleSheet.create({
   }
 
 });
-
-export default Catadores;
