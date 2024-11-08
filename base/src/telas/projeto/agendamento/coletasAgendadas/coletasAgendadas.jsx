@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ColetasAgendadas = ({navigation}) => {
+const ColetasAgendadas = ({ navigation }) => {
   return (
     <View style={styles.container}>
       
@@ -23,8 +23,8 @@ const ColetasAgendadas = ({navigation}) => {
         </TouchableOpacity>
       </View>
       
-      <TouchableOpacity style={styles.mapButton} onPress={() => navigation.navigate('Agendamento')}>
-        <Text style={styles.mapButtonText}>Ir para a página de agendamento</Text>
+      <TouchableOpacity style={styles.Button} onPress={() => navigation.navigate('Agendamento')}>
+        <Text style={styles.ButtonText}>Ir para a página de agendamento</Text>
       </TouchableOpacity>
     </View>
   );
@@ -103,16 +103,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  mapText: {
+  Text: {
     fontSize: 16,
     marginBottom: 10,
   },
-  mapButton: {
+  Button: {
     backgroundColor: 'green',
     padding: 15,
     borderRadius: 8,
   },
-  mapButtonText: {
+  ButtonText: {
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',

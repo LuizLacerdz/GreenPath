@@ -71,9 +71,9 @@ export default function LixoLaranja({navigation}) {
         objetos.
         </Text>
         <Button
-            onPress={() => navigation.navigate('Reciclar Pilhas e Baterias')}
+            onPress={() => navigation.navigate('Reciclar Laranja')}
             style={styles.botao}>
-            <Text color ="#000">Como Reciclar</Text>
+            <Text color ="#fff">Como Reciclar</Text>
         </Button>
 
       </ScrollView>

@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 
 
-
 const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -30,29 +29,23 @@ const HomeScreen = ({navigation}) => {
 
       {/* Options */}
       <View style={styles.options}>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Pontos de Reciclagem')}>
           <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold"}}>Veja pontos de coleta</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Buscar')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Catadores')}>
           <Image source={require('../../../../res/img/pesquisa.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold"}}>Encontrar catadores</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Agendar')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
           <Image source={require('../../../../res/img/reciclagem.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold"}}>O que posso reciclar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Agendamento')}>
           <Image source={require('../../../../res/img/calendario.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold"}}>Coletas agendadas</Text>
+          <Text style={{fontWeight: "bold"}}>Agendar Coleta</Text>
         </TouchableOpacity>
       </View>
-
-      {/* Schedule Collection */}
-      <TouchableOpacity style={styles.mapButton} onPress={() => navigation.navigate('Reciclagem')}>
-        <Text style={styles.mapButtonText}>Ir para o mapa</Text>
-      </TouchableOpacity>
-      
       </View>
       </ScrollView>
       </SafeAreaView>

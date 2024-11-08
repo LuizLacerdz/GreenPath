@@ -28,7 +28,7 @@ LocaleConfig.locales['fr'] = {
 LocaleConfig.defaultLocale = 'fr';
 
  <Calendar
-  // Customize the appearance of the calendar
+  // Customizar a aparencia do calendario
   style={{
     borderWidth: 1,
     borderColor: 'gray',
@@ -46,7 +46,7 @@ LocaleConfig.defaultLocale = 'fr';
       }}
     
   // Especifique a data atual
-  current={'2012-03-01'}
+  current={'2024-22-08'}
   // Retorno de chamada que é chamado quando o usuário seleciona um dia
   onDayPress={day => {
     console.log('selected day', day);
@@ -59,7 +59,7 @@ LocaleConfig.defaultLocale = 'fr';
   }}
 />
 
-const Agendamento = ({navigation}) => {
+const Agendamento = ({ navigation }) => {
   const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [selectedWeight, setSelectedWeight] = useState('');
   const [observation, setObservation] = useState('');
