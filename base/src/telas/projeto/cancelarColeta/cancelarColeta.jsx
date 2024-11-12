@@ -6,7 +6,6 @@ export default function cancelarColeta ({navigation}){
     <View style={styles.container}>
       {/* Header */}
 
-      {/* Main Content */}
       <Text style={styles.title}>Tem certeza que deseja cancelar este agendamento?</Text>
       
       <View style={styles.infoBox}>
@@ -15,10 +14,10 @@ export default function cancelarColeta ({navigation}){
       </View>
 
       {/* Buttons */}
-      <TouchableOpacity style={styles.cancelButton}>
+      <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate('Coleta Cancelada')}>
         <Text style={styles.cancelButtonText}>Cancelar coleta</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.rescheduleButton}>
+      <TouchableOpacity style={styles.rescheduleButton} onPress={() => navigation.navigate('Agendamento')}>
         <Text style={styles.rescheduleButtonText}>Reagendar</Text>
       </TouchableOpacity>
 

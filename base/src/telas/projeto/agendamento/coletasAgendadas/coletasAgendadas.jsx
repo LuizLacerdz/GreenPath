@@ -15,17 +15,13 @@ export default function ColetasAgendadas ({ navigation }) {
       <Text style={styles.note}>*Deixe seus resíduos recicláveis prontos para retirada e fique atento ao seu telefone.</Text>
       
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.cancelButton}>
+        <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate('Cancelar Coleta')}>
           <Text style={styles.buttonText}>Cancelar coleta</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.rescheduleButton}>
+        <TouchableOpacity style={styles.rescheduleButton} onPress={() => navigation.navigate('Agendamento')}>
           <Text style={styles.buttonText2}>Reagendar</Text>
         </TouchableOpacity>
       </View>
-      
-      <TouchableOpacity style={styles.Button} onPress={() => navigation.navigate('Agendamento')}>
-        <Text style={styles.ButtonText}>Ir para a página de agendamento</Text>
-      </TouchableOpacity>
     </View>
   );
 };

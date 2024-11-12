@@ -11,6 +11,8 @@ import ColetasAgendadas from './src/telas/projeto/agendamento/coletasAgendadas/c
 import PontosDeReciclagem from './src/telas/projeto/encontrePontosDeReciclagem/pontosDeReciclagem';
 import Reciclagem from './src/telas/projeto/paginaReciclagem/reciclagem';
 import Perfil1 from './src/telas/projeto/perfil/perfil1';
+import CanceladaSucesso from './src/telas/projeto/cancelarColeta/canceladaSucesso.jsx';
+import cancelarColeta from './src/telas/projeto/cancelarColeta/cancelarColeta.jsx';
 //Lixo AMARELO
 import lixoAmarelo from './src/telas/projeto/tiposDeReciclagens/lixoAmarelo/lixoAmarelo';
 import ReciclarMetal from './src/telas/projeto/tiposDeReciclagens/lixoAmarelo/ReciclarMetal';
@@ -56,6 +58,8 @@ export default function App() {
         <Stack.Screen name="Pontos de Reciclagem" component={PontosDeReciclagem} />
         <Stack.Screen name="Reciclagem" component={Reciclagem} />
         <Stack.Screen name="Perfil" component={Perfil1} />
+        <Stack.Screen name="Cancelar Coleta" component={cancelarColeta} />
+        <Stack.Screen name="Coleta Cancelada" component={CanceladaSucesso} />
         {/* Lixo AMARELO */}
         <Stack.Screen name="Lixo Amarelo" component={lixoAmarelo} />
         <Stack.Screen name="Reciclar Metal" component={ReciclarMetal} />

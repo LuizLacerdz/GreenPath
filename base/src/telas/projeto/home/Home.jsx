@@ -14,10 +14,6 @@ export default function HomeScreen ({navigation}){
         <Image source={require('../../../../res/img/fotoDePerfil.png')} style={styles.profilePic} />
       </View>
 
-      {/* Greeting */}
-      <Text style={styles.greeting}>Olá, Luiz e Lorenzo</Text>
-
-      {/* Next Collection Info */}
       <View style={styles.collectionInfo}>
         <Text style={styles.collectionText}>
           A próxima coleta municipal será em <Text style={styles.boldText}>08/12 - 18h</Text>

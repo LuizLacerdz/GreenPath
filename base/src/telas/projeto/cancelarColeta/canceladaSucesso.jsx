@@ -1,26 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default function ({navigation}) {
+export default function CanceladaSucesso ({navigation}) {
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Image source={require('./path/to/logo.png')} style={styles.logo} />
-        <Image source={require('./path/to/profile.png')} style={styles.profile} />
-      </View>
 
-      {/* Main Content */}
+
       <Text style={styles.title}>Agendamento cancelado com sucesso!</Text>
 
-      <TouchableOpacity style={styles.homeButton}>
+      <TouchableOpacity style={styles.homeButton} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.homeButtonText}>Ir para a home</Text>
       </TouchableOpacity>
-
-      {/* Footer */}
-      <View style={styles.footer}>
-        {/* Footer icons would go here */}
-      </View>
     </View>
   );
 };
@@ -63,11 +53,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 5,
     marginVertical: 10,
+    borderRadius: 8,
   },
   homeButtonText: {
     color: 'orange',
     fontSize: 16,
     fontWeight: 'bold',
+
   },
   footer: {
     flexDirection: 'row',

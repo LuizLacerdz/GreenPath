@@ -1,15 +1,7 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet,ScrollView, SafeAreaView } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import {Calendar, DateData, LocaleConfig} from 'react-native-calendars';
+import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {ptBR} from './localeCalendarConfig';
 
 LocaleConfig.locales['pt-br'] = ptBR;
@@ -26,9 +18,7 @@ export default function Agendamento({navigation}) {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.content}>
-            <Text style={styles.title}>
-              Associação de Reciclagem
-            </Text>
+            <Text style={styles.title}>Associação de Reciclagem</Text>
             {/* CALENDARIO */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Quando será sua coleta?</Text>
@@ -66,7 +56,6 @@ export default function Agendamento({navigation}) {
                 Data selecionada: {day?.dateString}
               </Text>
             </View>
-            
 
             {/* MATERIAIS */}
             <View style={styles.section}>
@@ -90,7 +79,6 @@ export default function Agendamento({navigation}) {
               </View>
             </View>
 
-
             {/* PESO */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
@@ -111,7 +99,6 @@ export default function Agendamento({navigation}) {
                 <Picker.Item label="50kg" value="50kg" />
               </Picker>
             </View>
-
 
             {/* OBSERVAÇÃO */}
             <View style={styles.section}>
