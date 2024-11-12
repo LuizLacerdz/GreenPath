@@ -27,19 +27,19 @@ export default function HomeScreen ({navigation}){
       <View style={styles.options}>
         <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Pontos de Reciclagem')}>
           <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold"}}>Veja pontos de coleta</Text>
+          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>Veja pontos de coleta</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Catadores')}>
           <Image source={require('../../../../res/img/pesquisa.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold"}}>Encontrar catadores</Text>
+          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>Encontrar catadores</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
           <Image source={require('../../../../res/img/reciclagem.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold"}}>O que posso reciclar</Text>
+          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>O que posso reciclar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Agendamento')}>
           <Image source={require('../../../../res/img/calendario.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold"}}>Agendar Coleta</Text>
+          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 10}}>Agendar Coleta</Text>
         </TouchableOpacity>
       </View>
       </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
   icones: {
     padding: 10,
-    marginRight: 90,
+    marginRight: 100,
   },
   greeting: {
     fontSize: 24,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   optionButton: {
     width: '48%',
     backgroundColor: '#f9f9f9',
-    padding: 10,
+    padding: 20,
     borderRadius: 10,
     alignItems: 'center',
     marginBottom: 10,

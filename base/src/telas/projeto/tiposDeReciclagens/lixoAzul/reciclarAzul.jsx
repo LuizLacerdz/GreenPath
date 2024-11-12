@@ -6,7 +6,7 @@ const reciclarAzul = () => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View>
-          <Text style={styles.header}>Como reciclar pilhas e baterias </Text>
+          <Text style={styles.header}>Como reciclar Papel </Text>
         </View>
         <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap'}}>
           <Image
@@ -18,6 +18,11 @@ const reciclarAzul = () => {
             resíduos até serem enviados para a reciclagem. A lixeira de cor
             azul, por sua vez, serve para armazenar o papel e suas variações
             (papelão, jornal, revista, cartolinas e entre outros).
+            {'\n'}
+            MAS, ATENÇÃO!!!!!!
+            {'\n'}
+            Nada de descartar na lixeira azul, papel higiênico, extratos bancários, guardanapos e lenços sujos, fotografias, 
+            etiquetas e fitas adesivas, papéis com parafina, revestido com cera e silicone, papel vegetal, celofane e carbono.
           </Text>
 
           <Text style={styles.text} numberOfLines={30}>

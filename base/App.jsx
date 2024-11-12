@@ -51,45 +51,309 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Catadores" component={Catadores} />
-        <Stack.Screen name="Agendamento" component={Agendamento} />
-        <Stack.Screen name="Coletas Agendadas" component={ColetasAgendadas} />
-        <Stack.Screen name="Pontos de Reciclagem" component={PontosDeReciclagem} />
-        <Stack.Screen name="Reciclagem" component={Reciclagem} />
-        <Stack.Screen name="Perfil" component={Perfil1} />
-        <Stack.Screen name="Cancelar Coleta" component={cancelarColeta} />
-        <Stack.Screen name="Coleta Cancelada" component={CanceladaSucesso} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+          fontWeight: 'bold',
+          },
+        }}/>
+        <Stack.Screen name="Catadores" component={Catadores} options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Agendamento" component={Agendamento}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Coletas Agendadas" component={ColetasAgendadas}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Pontos de Reciclagem" component={PontosDeReciclagem}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclagem" component={Reciclagem} options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Perfil" component={Perfil1}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Cancelar Coleta" component={cancelarColeta}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Coleta Cancelada" component={CanceladaSucesso}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
         {/* Lixo AMARELO */}
-        <Stack.Screen name="Lixo Amarelo" component={lixoAmarelo} />
-        <Stack.Screen name="Reciclar Metal" component={ReciclarMetal} />
-        <Stack.Screen name="Vaso Metal" component={vasoMetal} />
-        <Stack.Screen name="Velas e Lanterna" component={velasELanterna} />
+        <Stack.Screen name="Lixo Amarelo" component={lixoAmarelo}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclar Metal" component={ReciclarMetal}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Vaso Metal" component={vasoMetal}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Velas e Lanterna" component={velasELanterna}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
         {/* Lixo AZUL */}
-        <Stack.Screen name="Lixo Azul" component={lixoAzul} />
-        <Stack.Screen name="Papel Mache" component={papelMache} />
-        <Stack.Screen name="Papel Picado" component={papelPicado} />
-        <Stack.Screen name="Reciclar Azul" component={reciclarAzul} />
+        <Stack.Screen name="Lixo Azul" component={lixoAzul}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Papel Mache" component={papelMache}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Papel Picado" component={papelPicado}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclar Azul" component={reciclarAzul}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
         {/* Lixo LARANJA */}
-        <Stack.Screen name="Lixo Laranja" component={LixoLaranja} />
-        <Stack.Screen name="Reciclar Laranja" component={ReciclarLaranja} />
+        <Stack.Screen name="Lixo Laranja" component={LixoLaranja}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclar Laranja" component={ReciclarLaranja}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
         {/* Lixo MARROM */}
-        <Stack.Screen name="Lixo Marrom" component={lixoMarrom} />
-        <Stack.Screen name="Casca de Banana" component={cascaDeBanana} />
-        <Stack.Screen name="Casca de Batata" component={cascaDeBatata} />
-        <Stack.Screen name="Casca de Laranja" component={cascaDeLaranja} />
-        <Stack.Screen name="Reciclar Marrom" component={ReciclarMarrom} />
+        <Stack.Screen name="Lixo Marrom" component={lixoMarrom}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Casca de Banana" component={cascaDeBanana}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Casca de Batata" component={cascaDeBatata}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Casca de Laranja" component={cascaDeLaranja}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclar Marrom" component={ReciclarMarrom}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
         {/* Lixo VERDE */}
-        <Stack.Screen name="Lixo Verde" component={lixoVerde} />
-        <Stack.Screen name="Copo de Vidro" component={copo_vidro} />
-        <Stack.Screen name="Reciclar Vidro" component={ReciclarVidro} />
-        <Stack.Screen name="Terrario" component={Terrario} />
+        <Stack.Screen name="Lixo Verde" component={lixoVerde}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Copo de Vidro" component={copo_vidro}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclar Vidro" component={ReciclarVidro}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Terrario" component={Terrario}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
         {/* Lixo VERMELHO */}
-        <Stack.Screen name="Lixo Vermelho" component={lixoVermelho} />
-        <Stack.Screen name="Bilboque" component={bilboque} />
-        <Stack.Screen name="Ioio" component={Ioio} />
-        <Stack.Screen name="Reciclar Vermelho" component={reciclarVermelho} />
-        <Stack.Screen name="Vaso de Planta" component={vasoDePlanta} />
+        <Stack.Screen name="Lixo Vermelho" component={lixoVermelho}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Bilboque" component={bilboque}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Ioio" component={Ioio}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Reciclar Vermelho" component={reciclarVermelho}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
+        <Stack.Screen name="Vaso de Planta" component={vasoDePlanta}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
