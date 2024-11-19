@@ -4,7 +4,10 @@ import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-n
 export default function cancelarColeta ({navigation}){
   return (
     <View style={styles.container}>
-      {/* Header */}
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
 
       <Text style={styles.title}>Tem certeza que deseja cancelar este agendamento?</Text>
       
@@ -35,6 +38,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   header: {
     flexDirection: 'row',

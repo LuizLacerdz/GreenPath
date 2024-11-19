@@ -4,6 +4,10 @@ import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
 const Terrario = () => {
   return (
     <View style={styles.container}>
+    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
         <View>
           <Text style={styles.header}>Terrário</Text>
@@ -45,8 +49,16 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#faf7f7',
     },
-  
-    header: {
+    backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
+  },
+    header: { 
       flex: 1,
       fontSize: 40,
       fontWeight: 'bold',

@@ -25,6 +25,7 @@ export default function lixoAzul({navigation}) {
           styles.sidebarContainer,
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
+        
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Text style={styles.closeButtonText}>Fechar</Text>
         </TouchableOpacity>
@@ -59,8 +60,11 @@ export default function lixoAzul({navigation}) {
   return (
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
-
-        {/*  Papel Picado */}
+        
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
@@ -120,7 +124,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
+  },
   sidebarContainer: {
     position: 'absolute',
     top: 0,

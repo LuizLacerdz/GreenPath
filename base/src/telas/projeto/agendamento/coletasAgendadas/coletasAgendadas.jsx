@@ -4,7 +4,10 @@ import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-n
 export default function ColetasAgendadas ({ navigation }) {
   return (
     <View style={styles.container}>
-      
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
       <Text style={styles.title}>Você possui <Text style={styles.destaque}>1</Text> coleta agendada</Text>
       
       <View style={styles.card}>
@@ -31,6 +34,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#fff',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 10,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   header: {
     flexDirection: 'row',

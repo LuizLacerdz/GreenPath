@@ -1,4 +1,4 @@
-const connction = require("../config/db")
+const connection = require("../config/db")
 const bcrypt = require('bcrypt');
 const salt = 10;
 
@@ -223,7 +223,7 @@ const userModel = {
 
         const handPassword = await bcrypt.hash(senha,salt)
 
-        const [result]= await connection.query("INSERT INTO cadastro values(?,?,?,?)",[id,nome,email,handPassword])
+        const [result]= await connection.query("INSERT INTO usuarios values(?,?,?,?)",[id,nome,email,handPassword])
         .catch(erro => console.log(erro));
         return result
     },
@@ -239,14 +239,8 @@ const userModel = {
 
     //Green_Path
 
-    //* Pegar o ID
-    getByIDCalendario: async (id) => {
-        const [result] = await connection.query("SELECT * FROM agenda WHERE id=?",[id])
-        .catch(erro => console.log(erro));
-        return result
-    },
 
-    //* Cadastrar Calendario
+    //! Cadastrar Calendario
     registerCalendar: async(id, calendario, materiais, peso, observacao) => {
          const [result] = await connection.query("INSERT INTO agenda values(?, ?, ?, ?, ?)" , [id, calendario, materiais, peso, observacao])
          .catch(erro => console.log(erro));
@@ -273,8 +267,58 @@ const userModel = {
         .catch(erro  => console.log(erro));
         return result
     },
-    
 
+    //!Validar SENHA CRIPTOGRAFADA
+        validateLoginProjetoGreen: async(email, senha) => {
+        const [result] = await connection.query("SELECT * FROM usuarios WHERE email=?" , [email])
+        try{
+            if(result.length >0){
+                const user = result[0];
+
+                const validate = await bcrypt.compare(senha, user.senha);
+
+                if(validate){
+                    return result
+                }
+                else{
+                    return null
+                }
+            }
+            else{
+                return null
+            }
+        }
+        catch(erro){
+            console.log(erro)
+        }
+    
+    },
+    
+    //!Registrar senha criptografada
+    registerProjetoGreen: async(id,nome,email,senha)=>{
+
+        const handPassword = await bcrypt.hash(senha,salt)
+
+        const [result]= await connection.query("INSERT INTO usuarios values(?,?,?,?)",[id,nome,email,handPassword])
+        .catch(erro => console.log(erro));
+        return result
+    },
+
+
+
+    //!Atualizar senha
+    updatePassworldProjetoGreen: async(email, senha) => {
+        const [result] = await connection.query("UPDATE usuarios SET senha=? WHERE email=?", [senha, email])
+        .catch(erro => console.log(erro))
+        return result;
+    },
+
+    //!Pegar Email GREEN
+    getByEmailProjetoGreen: async(email) => {
+        const [result] = await connection.query("SELECT * FROM usuarios WHERE email=?" , [email])
+        .catch(erro  => console.log(erro));
+        return result;
+    },
 
 
 

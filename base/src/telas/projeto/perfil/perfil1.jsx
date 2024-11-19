@@ -5,6 +5,10 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, Link } from 'react-nat
 export default function Perfil1 ({navigation}){
   return (
     <View style={styles.container}>
+    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
       <View style={styles.profileContainer}>
         <Image source={require('../../../../res/img/perfilMasc.png')} style={styles.veraLucia}/>
         <View style={styles.infoContainer}>
@@ -40,6 +44,15 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     backgroundColor: '#E2F3E8',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   header: {
     flexDirection: 'row',

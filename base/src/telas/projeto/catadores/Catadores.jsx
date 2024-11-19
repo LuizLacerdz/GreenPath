@@ -5,7 +5,11 @@ import { View, Text, TextInput, Image, StyleSheet, ScrollView, TouchableOpacity 
 export default function Catadores({navigation}){
   return (
     <View style={styles.container}>
-    
+    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Encontre e converse com um catador perto de você</Text>
       <View style={styles.searchContainer}>
         <Image source={require('../../../../res/img/pesquisa.png')} style={styles.pesquisa}/>
@@ -44,6 +48,15 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     backgroundColor: '#E2F3E8',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   header: {
     flexDirection: 'row',

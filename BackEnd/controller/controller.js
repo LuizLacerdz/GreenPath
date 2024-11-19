@@ -477,6 +477,65 @@ const userController = {
         }
     },
 
+    //!Login PROJETO SENAI
+
+    loginProjeto: async(req,res) => {
+        let{email, senha} = req.body;
+
+        try{
+            const sql = await clientController.validateLoginProjetoGreen(email, senha);
+
+            if(sql != null){
+                res.status(201).json({msg: 'Usuário válidado com sucesso'});
+            }
+            else{
+                res.status(401).json({msg:'credenciais inválidas'})
+            }
+        }
+        catch(error){
+            if(error){
+                res.status(500).json(error);
+            }
+        }
+    },
+
+    //!Cadastrar um novo usuário no banco com senha criptografada
+    registerProjetoUser: async (req, res) => {
+        const { id, nome, email, senha } = req.body;
+
+        try {
+            const sql = await clientController.getByEmailProjetoGreen(email);
+
+            if (sql.length > 0) {
+                res.status(401).json({ msg: "O email já esta cadastrado na base de dados, insira um email diferente" })
+            }
+            else {
+                await clientController.registerProjetoGreen(id, nome, email, senha);
+                res.status(201).json({ msg: "Usuario cadastro com sucesso" })
+            }
+        }
+        catch (error) {
+            console.log(error)
+            res.status(500).json({ msg: "Ocorreu um erro durante o registro do usuário" });
+        }
+    },
+
+    //!Trocar Senha
+    resetPassworldProjeto: async(req, res) => {
+        let {email, senha} = req.body;
+
+        email = email.toLowerCase();
+
+        try{
+            await clientController.updatePassworldProjeto(email, senha);
+            res.status(200).json({msg: 'Senha atualizada com sucesso'});
+        }
+        catch(error){
+            console.log("erro ao redefinir a senha");
+            res.status(500).json({msg: 'Erro no servidor'})
+        }
+    },
+
 
 
 

@@ -4,6 +4,10 @@ import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
 const ReciclarMetal = () => {
   return (
     <View style={styles.container}>
+    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
         <View>
           <Text style={styles.header}>Como Reciclar Metais</Text>
@@ -33,7 +37,15 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#faf7f7',
     },
-  
+    backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
+  },
     header: {
       flex: 1,
       fontSize: 40,

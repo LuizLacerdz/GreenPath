@@ -7,7 +7,9 @@ export default function Reciclagem ({navigation}){
     <SafeAreaView>
     <ScrollView>
     <View style={styles.container}>
-
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
 
       {/* Title */}
       <Text style={styles.title}>Resíduos que você pode separar para coleta:</Text>
@@ -74,6 +76,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#E2F3E8',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   header: {
     flexDirection: 'row',

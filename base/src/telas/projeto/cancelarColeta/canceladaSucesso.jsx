@@ -4,7 +4,10 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 export default function CanceladaSucesso ({navigation}) {
   return (
     <View style={styles.container}>
-
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
 
       <Text style={styles.title}>Agendamento cancelado com sucesso!</Text>
 
@@ -21,6 +24,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   header: {
     flexDirection: 'row',

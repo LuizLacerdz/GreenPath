@@ -7,6 +7,10 @@ import { NavigationContainer } from '@react-navigation/native';
 export default function PontosDeReciclagem ({navigation}){
   return (
     <View style={styles.container}>
+    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
       <MapView 
         style={styles.map}
         initialRegion={{

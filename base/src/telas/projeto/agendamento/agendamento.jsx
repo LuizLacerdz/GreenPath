@@ -17,6 +17,10 @@ export default function Agendamento({navigation}) {
     <SafeAreaView>
       <ScrollView>
         <View style={styles.container}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          {/* Back button icon */}
+        <Text style={styles.backButtonText}>{'<'}</Text>
+      </TouchableOpacity>
           <View style={styles.content}>
             <Text style={styles.title}>Associação de Reciclagem</Text>
             {/* CALENDARIO */}
@@ -132,6 +136,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 16,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: '#018A23',
   },
   logo: {
     width: 40,
