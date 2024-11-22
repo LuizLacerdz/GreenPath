@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   SectionList,
+  TouchableOpacity,
 } from 'react-native';
 
 const vasoDePlanta = ({navigation}) => {
@@ -27,7 +28,6 @@ const vasoDePlanta = ({navigation}) => {
           <SectionList
             sections={[
               {
-                title: 'IoIô de Garrafa PET',
                 data: [
                   'Garrafa PET (transparente ou colorida)',
                   'Tesoura ou estilete',
@@ -81,11 +81,10 @@ const vasoDePlanta = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#faf7f7',
+    backgroundColor: '#faffe4',
   },
-  backButton: {
-    position: 'absolute',
-    top: 50,
+    backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

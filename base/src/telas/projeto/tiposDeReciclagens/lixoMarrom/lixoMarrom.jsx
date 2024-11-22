@@ -73,7 +73,7 @@ export default function lixoMarrom({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('Casca De Batata')}
+                onPress={() => navigation.navigate('Casca de Batata')}
                 style={styles.botao}>
                 Saber Mais..
               </Button>
@@ -94,7 +94,7 @@ export default function lixoMarrom({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('Casca De Banana')}
+                onPress={() => navigation.navigate('Casca de Banana')}
                 style={styles.botao}>
                 Saber Mais..
               </Button>
@@ -115,7 +115,7 @@ export default function lixoMarrom({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('Casca De Laranja')}
+                onPress={() => navigation.navigate('Casca de Laranja')}
                 style={styles.botao}>
                 Saber Mais..
               </Button>
@@ -143,11 +143,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   scrollview: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
-  backButton: {
-    position: 'absolute',
-    top: 50,
+    backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

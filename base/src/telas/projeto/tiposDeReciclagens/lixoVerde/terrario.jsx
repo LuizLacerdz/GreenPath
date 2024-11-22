@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 
-const Terrario = () => {
+const Terrario = ({navigation}) => {
   return (
     <View style={styles.container}>
     <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -47,11 +47,10 @@ const Terrario = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#faf7f7',
+      backgroundColor: '#faffe4',
     },
-    backButton: {
-    position: 'absolute',
-    top: 50,
+      backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

@@ -39,6 +39,7 @@ router.get('/', clientController.getRoot); //Rota raiz
 //* Green_Path
 router.post('/api/loginprojeto', clientController.loginProjeto) //* Login projeto
 router.post('/api/cadastroprojetoGreen', clientController.registerProjetoUser) //* Cadastro projeto
+router.post('/api/resetsenhaprojetoGreen', clientController.resetPassworldProjeto) //*Resetar a senha projeto
 module.exports = router;
 
 

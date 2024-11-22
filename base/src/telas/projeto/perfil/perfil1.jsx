@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 50,
-    backgroundColor: '#E2F3E8',
+    backgroundColor: '#faffe4',
   },
   backButton: {
     position: 'absolute',

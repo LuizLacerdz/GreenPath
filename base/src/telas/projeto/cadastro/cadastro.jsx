@@ -49,7 +49,6 @@ export default function Cadastro ({navigation}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       
@@ -102,7 +101,7 @@ export default function Cadastro ({navigation}) {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
       <Text style={styles.loginPrompt}>
         Já tem uma conta? <Text style={styles.loginLink}>Faça seu Login</Text>
       </Text>
@@ -115,7 +114,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
   backButton: {
     marginBottom: 20,
@@ -136,11 +135,12 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderColor: '#ccc',
+    borderColor: '#fff',
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 15,
+    backgroundColor: 'white'
   },
   button: {
     backgroundColor: '#018A23',
@@ -188,5 +188,6 @@ const styles = StyleSheet.create({
     loginPrompt: {
     textAlign: 'center',
     color: '#999999',
+    
   },
 });

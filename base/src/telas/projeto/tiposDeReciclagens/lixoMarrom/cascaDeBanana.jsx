@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, ScrollView, SectionList} from 'react-native';
+import {StyleSheet, View, Text, Image, ScrollView, SectionList, TouchableOpacity,} from 'react-native';
 
 const cascaDeBanana = ({navigation}) => {
   return (
@@ -61,11 +61,10 @@ const cascaDeBanana = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#faf7f7',
+    backgroundColor: '#faffe4',
   },
-  backButton: {
-    position: 'absolute',
-    top: 50,
+    backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

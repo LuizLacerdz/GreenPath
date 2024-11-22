@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 
 
 const ReciclarLaranja = () => {
@@ -44,11 +44,10 @@ const ReciclarLaranja = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#faf7f7',
+      backgroundColor: '#faffe4',
     },
-    backButton: {
-    position: 'absolute',
-    top: 50,
+      backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

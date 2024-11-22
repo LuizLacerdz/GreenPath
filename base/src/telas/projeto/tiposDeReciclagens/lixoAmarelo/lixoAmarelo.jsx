@@ -73,7 +73,7 @@ export default function lixoAmarelo({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('Velas E Lanternas')}
+                onPress={() => navigation.navigate('Velas e Lanterna')}
                 style={styles.botao}>
                 <Text color="#000">Saber Mais..</Text>
               </Button>
@@ -94,7 +94,7 @@ export default function lixoAmarelo({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('vaso Metal')}
+                onPress={() => navigation.navigate('Vaso Metal')}
                 style={styles.botao}>
                 <Text color="#000">Saber Mais..</Text>
               </Button>
@@ -122,11 +122,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   scrollview: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
-  backButton: {
-    position: 'absolute',
-    top: 50,
+    backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 
-const copo_vidro = () => {
+const copo_vidro = ({navigation}) => {
   return (
     <View style={styles.container}>
     <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -36,11 +36,10 @@ const copo_vidro = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#faf7f7',
+      backgroundColor: '#faffe4',
     },
-    backButton: {
-    position: 'absolute',
-    top: 50,
+      backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

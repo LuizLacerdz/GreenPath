@@ -307,11 +307,18 @@ const userModel = {
 
 
     //!Atualizar senha
-    updatePassworldProjetoGreen: async(email, senha) => {
-        const [result] = await connection.query("UPDATE usuarios SET senha=? WHERE email=?", [senha, email])
-        .catch(erro => console.log(erro))
-        return result;
+   updatePasswordProjetoGreen: async(email, senha) => {
+
+        const handPassword = await bcrypt.hash(senha, salt)
+
+        try {
+            const [result] = await connection.query("UPDATE usuarios SET senha=? WHERE email=?", [handPassword, email])
+            return result;
+        } catch (erro) {
+            throw erro
+        }
     },
+
 
     //!Pegar Email GREEN
     getByEmailProjetoGreen: async(email) => {

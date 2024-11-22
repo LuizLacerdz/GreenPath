@@ -11,8 +11,9 @@ export default function HomeScreen ({navigation}){
       {/* Header */}
       <View style={styles.header}>
         <Image source={require('../../../../res/img/logo.png')} style={styles.logo} />
-        <Image source={require('../../../../res/img/fotoDePerfil.png')} style={styles.profilePic} />
       </View>
+
+       <Text style={styles.welcomeText}>Bem vindo ao Green Path!</Text>
 
       <View style={styles.collectionInfo}>
         <Text style={styles.collectionText}>
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#E2F3E8',
+    backgroundColor: '#faffe4',
   },
   header: {
     flexDirection: 'row',
@@ -115,100 +116,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: "bold",
   },
-  mapButton: {
-    borderWidth: 1,
-    backgroundColor: '#0A9D3C',
-    padding: 10,
-    borderRadius: 5,
-  },
-  mapButtonText: {
-    color: 'white',
-    textAlign: 'center',
-    fontWeight: "bold"
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 10,
-  },
-  containerCards: {
-    marginBottom: 10,
-    flexDirection: 'row',
+
+  welcomeText:{
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: '#492623',
   },
 
-  mainCardTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginLeft: 20,
-  },
-  subtitulo: {
-    marginLeft: 220,
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#199A8E',
-    marginTop: 12,
-  },
-  card: {
-    margin: 10,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    elevation: 4,
-    width: 115,
-    height: 200,
-    borderWidth: 1,
-    flexDirection: 'row',
-  },
-  image: {
-    backgroundColor: '#5D2828',
-    height: 100,
-    width: '100',
-    resizeMode: 'contain',
-  },
-  image2: {
-    backgroundColor: '#FF0000',
-    height: 100,
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  image3: {
-    backgroundColor: '#0047B1',
-    height: 100,
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  image4: {
-    backgroundColor: '#EBFF00',
-    height: 100,
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  image5: {
-    backgroundColor: '#05FF00',
-    height: 100,
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  image6: {
-    backgroundColor: '#FF8A00',
-    height: 100,
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  content: {
-    margin: 16,
-    borderTopWidth: 1,
-  },
-  titleCard: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  description: {
-    fontSize: 14,
-    color: 'gray',
-  },
-  titleS: {
-    flexDirection: 'row',
-  },
+
   card: {
     margin: 10,
     backgroundColor: '#fff',

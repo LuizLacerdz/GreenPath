@@ -26,7 +26,6 @@ export default function lixoVermelho({navigation}) {
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
@@ -94,7 +93,7 @@ export default function lixoVermelho({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('Vaso De Planta')}
+                onPress={() => navigation.navigate('Vaso de Planta')}
                 style={styles.botao}>
                 Saber Mais..
               </Button>
@@ -143,11 +142,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   scrollview: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
-  backButton: {
-    position: 'absolute',
-    top: 50,
+    backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {

@@ -527,7 +527,7 @@ const userController = {
         email = email.toLowerCase();
 
         try{
-            await clientController.updatePassworldProjeto(email, senha);
+            await clientController. updatePasswordProjetoGreen(email, senha);
             res.status(200).json({msg: 'Senha atualizada com sucesso'});
         }
         catch(error){

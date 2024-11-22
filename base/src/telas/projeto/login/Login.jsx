@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#faffe4',
   },
   backButton: {
     position: 'absolute',
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderColor: '#000',
+    borderColor: '#fff',
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 15,

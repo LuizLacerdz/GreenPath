@@ -5,10 +5,10 @@ export default function PaginaIncial ({navigation}) {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../../../res/img/jogandoLixo.png')} // Replace with your image URL
+        source={require('../../../../res/img/jogandoLixo.png')}
         style={styles.topImage}
       />
-      <Text style={styles.title}>Recicle.me</Text>
+      <Text style={styles.title}>Green Path</Text>
       <TouchableOpacity style={styles.buttonPrimary} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.buttonTextPrimary}>Entrar</Text>
       </TouchableOpacity>
@@ -24,17 +24,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#faffe4',
   },
   topImage: {
-    width: 200, // Adjust width
-    height: 100, // Adjust height
+    width: 200, // Ajuste width
+    height: 100, // Ajuste height
     resizeMode: 'contain',
     marginBottom: 20,
+    marginLeft: 15,
   },
   logo: {
-    width: 300, // Adjust width
-    height: 300, // Adjust height
+    width: 300, // Ajuste width
+    height: 300, // Ajuste height
     resizeMode: 'contain',
     marginBottom: 20,
   },

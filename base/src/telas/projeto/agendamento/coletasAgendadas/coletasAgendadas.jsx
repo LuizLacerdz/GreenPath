@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
   backButton: {
     position: 'absolute',

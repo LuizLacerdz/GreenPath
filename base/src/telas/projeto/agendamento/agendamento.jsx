@@ -130,7 +130,7 @@ export default function Agendamento({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
   header: {
     flexDirection: 'row',

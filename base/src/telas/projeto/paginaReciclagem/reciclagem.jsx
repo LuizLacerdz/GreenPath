@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet,ScrollView,SafeAreaView} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Example icon library
 
 export default function Reciclagem ({navigation}){
   return (
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#E2F3E8',
+    backgroundColor: '#faffe4',
   },
   backButton: {
     position: 'absolute',

@@ -94,7 +94,7 @@ export default function lixoAzul({navigation}) {
             </Text>
             <View style={styles.buttoncontainer}>
               <Button
-                onPress={() => navigation.navigate('Mascara')}
+                onPress={() => navigation.navigate('Papel Mache')}
                 style={styles.botao}>
                 <Text color="#fff">Saber Mais..</Text>
               </Button>
@@ -122,11 +122,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   scrollview: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#faffe4',
   },
-  backButton: {
-    position: 'absolute',
-    top: 50,
+    backButton: {
+    top: 10,
     left: 20,
   },
   backButtonText: {
