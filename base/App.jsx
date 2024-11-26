@@ -14,6 +14,7 @@ import Perfil1 from './src/telas/projeto/perfil/perfil1';
 import CanceladaSucesso from './src/telas/projeto/cancelarColeta/canceladaSucesso.jsx';
 import cancelarColeta from './src/telas/projeto/cancelarColeta/cancelarColeta.jsx';
 import paginaInicial from './src/telas/projeto/paginaInicial/paginaInicial.jsx';
+import Mapa from './src/telas/projeto/mapa/mapa.jsx';
 
 //LOGIN, CADASTRO E RESET SENHA
 import Login from './src/telas/projeto/login/Login.jsx';
@@ -64,7 +65,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Pagina Inicial">
+      <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Pagina Inicial" component={paginaInicial} options={{
           headerStyle: {
             backgroundColor: '#B6EAAD',
@@ -461,6 +462,16 @@ export default function App() {
             fontWeight: 'bold',
           }
         }}/>
+        {/* <Stack.Screen name="Mapa" component={Mapa}  options={{
+          headerStyle: {
+            backgroundColor: '#B6EAAD',
+          },
+          headerTintColor: '#000',
+           headerShown: false,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

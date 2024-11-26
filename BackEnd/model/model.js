@@ -327,6 +327,12 @@ const userModel = {
         return result;
     },
 
+    getAllAgenda: async () => {
+        const [result] = await connection.query("SELECT * FROM agenda")
+        .catch(erro => console.log(erro));
+        return result
+    },
+
 
 
 };

@@ -1,5 +1,7 @@
 
 const clientController = require("../model/model.js");
+const moment = require('moment');
+
 
 const userController = {
     //Route root
@@ -416,20 +418,12 @@ const userController = {
 
     registerCalendar: async (req, res) => {
         const { id, calendario, materiais, peso, observacao} = req.body;
-       
-        let data_formatada = calendario.split('/').reverse().join('-');
-        console.log(data_formatada)
+
+        const data = moment(calendario, 'DD/MM/YYYY').format('YYYY-MM-DD');
+
         try {
-            const sql = await clientController.getByIDCalendario(id);
-
-            if (sql.length > 0) {
-                res.status(401).json({ msg: "Já está agendado para esta data, por favor insira uma data diferente" })
-            }
-            else {
-                await clientController.registerCalendar(id, calendario, materiais, peso, observacao);
-
+                await clientController.registerCalendar(id, data, materiais, peso, observacao);
                 res.status(201).json({ msg: "Agendado com sucesso" })
-            }
         }
         catch (error) {
             console.log(error)
@@ -439,7 +433,7 @@ const userController = {
 
     //!Deletar coleta do banco de dados
 
-    deleteAgenda: async (req ,res)=>{
+    deletarIdAgenda: async (req ,res)=>{
         try{
             const sql = await clientController.getByIDAgenda(req.params.id);
 
@@ -459,23 +453,21 @@ const userController = {
     //! Reagendar coleta
 
     updateAgenda: async (req, res) => {
-        const {calendario, materiais, peso, observacao} = req.body;
+        const { calendario, materiais, peso, observacao } = req.body;
+        const data = moment(calendario, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-        try{
-            const sql = await clientController.getByIDAgenda(req.params.id);
+        // const sql = await clientController.getByIDAgenda(req.params.id);
 
-            if (sql.length > 0) {
-                await clientController.updateAgenda(calendario, materiais, peso, observacao, req.params.id);
-                res.status(200).json({msg: "Coleta reagendada com sucesso !!!"})
-            }
-            else{
-                res.status(401).json({msg:" Erro ao reagendar a coleta"})
-            }
-        }
-        catch(error) {
-            res.status(500).json({error: "Erro ao tentar reagendar a coleta" + error})
+        try {
+        
+          await clientController.updateAgenda(data, materiais, peso, observacao, req.params.id);
+          res.status(201).json({ msg: "Reagendado com sucesso" });
+
+        } catch (error) {
+            res.status(500).json({ error: "Erro ao tentar reagendar a coleta" });
         }
     },
+
 
     //!Login PROJETO SENAI
 
@@ -532,6 +524,16 @@ const userController = {
         }
         catch(error){
             console.log("erro ao redefinir a senha");
+            res.status(500).json({msg: 'Erro no servidor'})
+        }
+    },
+
+    getAllAgenda: async(req, res) => {
+        try{
+            const agenda = await clientController.getAllAgenda();
+            res.status(200).json(agenda);
+        }
+        catch(error){
             res.status(500).json({msg: 'Erro no servidor'})
         }
     },

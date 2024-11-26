@@ -1,8 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-
+import axios from 'axios';
 
 export default function HomeScreen ({navigation}){
+  const [id, setId] = useState('');
+  const [data, setData] = useState([]);
+
+    useEffect(() => {
+       axios.get(`http://10.0.2.2:8085/api/editarcalendario/${id}`)
+            .then(response => {
+                //ordenar os dados pelo id em ordem crescente 
+                const data = response.data.sort((a, b) => a.id - b.id);
+                setData(data);
+            })
+            .catch(error => {
+                console.log(JSON.stringify(error));
+            });
+    }, []);
+
+    // const handleAtualizar = (id) => {
+    //     navigation.navigate('Atualizar', { id });
+    // };
+
+    const renderItem = ({ item }) => (
+        <Text style={styles.collectionText}>
+          A próxima coleta municipal será em <Text style={styles.boldText}>{item.data}</Text>
+        </Text>
+      )
+
   return (
     <SafeAreaView style={styles.container}>
     <ScrollView>
@@ -15,9 +40,10 @@ export default function HomeScreen ({navigation}){
 
        <Text style={styles.welcomeText}>Bem vindo ao Green Path!</Text>
 
+      
       <View style={styles.collectionInfo}>
         <Text style={styles.collectionText}>
-          A próxima coleta municipal será em <Text style={styles.boldText}>08/12 - 18h</Text>
+          A próxima coleta municipal será em <Text style={styles.boldText}></Text>
         </Text>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Coletas Agendadas')}>
           <Text style={styles.buttonText}>Ver coletas</Text>
@@ -26,7 +52,7 @@ export default function HomeScreen ({navigation}){
 
       {/* Options */}
       <View style={styles.options}>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Pontos de Reciclagem')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Mapa')}>
           <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>Veja pontos de coleta</Text>
         </TouchableOpacity>

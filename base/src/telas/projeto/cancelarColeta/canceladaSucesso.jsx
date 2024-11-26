@@ -5,9 +5,10 @@ export default function CanceladaSucesso ({navigation}) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
+
+      <Image source={require('../../../../res/img/Sticker.png')} style={styles.stiker} />
 
       <Text style={styles.title}>Agendamento cancelado com sucesso!</Text>
 
@@ -43,9 +44,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
   },
-  logo: {
-    width: 40,
-    height: 40,
+  stiker: {
+    width: 110,
+    height: 110,
   },
   profile: {
     width: 40,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   homeButton: {
-    borderColor: 'orange',
+    borderColor: '#88a22b',
     borderWidth: 2,
     paddingVertical: 15,
     paddingHorizontal: 30,
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   homeButtonText: {
-    color: 'orange',
+    color: '#88a22b',
     fontSize: 16,
     fontWeight: 'bold',
 

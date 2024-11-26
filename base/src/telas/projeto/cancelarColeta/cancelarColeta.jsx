@@ -1,7 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
+import axios from 'axios';
+
+    
 
 export default function cancelarColeta ({navigation}){
+  const [id, setId] = useState(''); //Variavel que vai armazenar o id do produto que será deletado.
+  const [mensagem, setMensagem] = useState('');
+
+    const handleDelete = () => {
+        axios.delete(`http://10.0.2.2:8085/api/editarcalendario/${id}`)
+        .then(response => {
+            setMensagem('Registro deletado com sucesso');
+            setId("");
+
+            navigation.navigate('Home')
+        })
+        .catch(error => {
+            if(error.response && error.response.status === 401){
+                setMensagem("o ID não existe no banco de dados");
+            }
+            else{
+            setMensagem("Erro ao deletar o usuário")
+            }
+        });
+    };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
@@ -17,7 +41,7 @@ export default function cancelarColeta ({navigation}){
       </View>
 
       {/* Buttons */}
-      <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate('Coleta Cancelada')}>
+      <TouchableOpacity style={styles.cancelButton} onPress={handleDelete}>
         <Text style={styles.cancelButtonText}>Cancelar coleta</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.rescheduleButton} onPress={() => navigation.navigate('Agendamento')}>

@@ -36,37 +36,38 @@ const styles = StyleSheet.create({
   logo: {
     width: 300, // Ajuste width
     height: 300, // Ajuste height
-    resizeMode: 'contain',
-    marginBottom: 20,
+    resizeMode: 'contain', // Ajuste resizeMode
+    marginBottom: 20, //  Ajuste marginBottom
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333333',
-    marginBottom: 40,
+    fontSize: 24, // Ajuste fontSize
+    fontWeight: 'bold', // Ajuste fontWeight
+    color: '#333333', // Ajuste color
+    marginBottom: 40,// Ajuste marginBottom
   },
   buttonPrimary: {
-    backgroundColor: '#FF7F00',
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 10,
-    marginBottom: 10,
+    backgroundColor: '#018A23', // Ajuste a cor do botão
+    paddingVertical: 15, // Ajuste a altura do botão
+    paddingHorizontal: 40, // Ajuste a largura do botão
+    borderRadius: 10, // Ajuste o raio do botão
+    marginBottom: 10, // Ajuste a margem inferior
   },
   buttonTextPrimary: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
+    color: '#FFFFFF', // Ajuste a cor do texto
+    fontSize: 16, // Ajuste o tamanho do texto
+    fontWeight: 'bold', // Ajuste o peso do texto
   },
   buttonSecondary: {
-    borderColor: '#A3D900',
-    borderWidth: 2,
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 10,
+    borderColor: '#648016', // Ajuste a cor do botão
+    borderWidth: 2, // Ajuste a largura da borda
+    paddingVertical: 15,  // Ajuste a altura do botão
+    paddingHorizontal: 40, // Ajuste a largura do botão
+    borderRadius: 10, // Ajuste o raio do botão 
+    fontWeight: 'bold', // Ajuste o peso do texto
   },
   buttonTextSecondary: {
-    color: '#A3D900',
-    fontSize: 16,
-    fontWeight: 'bold',
+    color: '#648016', // Ajuste a cor do texto
+    fontSize: 16, // Ajuste o tamanho do texto
+    fontWeight: 'bold', // Ajuste o peso do texto
   },
 });

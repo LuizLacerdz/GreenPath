@@ -40,6 +40,10 @@ router.get('/', clientController.getRoot); //Rota raiz
 router.post('/api/loginprojeto', clientController.loginProjeto) //* Login projeto
 router.post('/api/cadastroprojetoGreen', clientController.registerProjetoUser) //* Cadastro projeto
 router.post('/api/resetsenhaprojetoGreen', clientController.resetPassworldProjeto) //*Resetar a senha projeto
+router.post('/api/cadastrarcalendario', clientController.registerCalendar) //*Cadastro Calendario
+router.delete('/api/deletarcalendario/:id', clientController.deletarIdAgenda) //*Deletar Calendario
+router.put('/api/editarcalendario/:id', clientController.updateAgenda) //*Editar Calendario
+router.get('/api/listaragenda', clientController.getAllAgenda) //* Rota para listar todos os Usuários
 module.exports = router;
 
 

@@ -1,5 +1,5 @@
 export const ptBR = {
-    monthNames: [
+    monthNames: [ // nomes dos meses
         "Janeiro",
         "Fevereiro",
         "Março",
@@ -13,7 +13,7 @@ export const ptBR = {
         "Novembro",
         "Dezembro",
     ],
-    monthNamesShort: [
+    monthNamesShort: [ // abreviaturas dos meses
         "Jan",
         "Fev",
         "Mar",
@@ -27,7 +27,7 @@ export const ptBR = {
         "Nov",
         "Dez",
     ],
-    dayNames: [
+    dayNames: [ // nomes dos dias
         "Domingo",
         "Segunda",
         "Terça",
@@ -36,6 +36,6 @@ export const ptBR = {
         "Sexta",
         "Sábado",
     ],
-    dayNamesShort: [ "DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB" ],
-    today: "Hoje",
+    dayNamesShort: [ "DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB" ], // abreviaturas dos dias
+    today: "Hoje", // hoje
 }
