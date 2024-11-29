@@ -1,31 +1,59 @@
-import React from 'react';
-import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Text, Image, Button, StyleSheet, TouchableOpacity, FlatList, SafeAreaView,ScrollView  } from 'react-native';
+import axios from 'axios';
+
 
 export default function ColetasAgendadas ({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
-      <Text style={styles.title}>Você possui <Text style={styles.destaque}>1</Text> coleta agendada</Text>
-      
-      <View style={styles.card}>
-        <Text style={styles.cardText}>Associação dos Catadores de Material Reciclável . ASCAS</Text>
-        <Text style={styles.cardDate}>01/04 - Vidro</Text>
+  const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://10.0.2.2:8085/api/listaragenda")
+            .then(response => {
+                //ordenar os dados pelo id em ordem crescente
+                const sortData = response.data.sort((a, b) => a.id - b.id);
+                setData(sortData);
+            })
+            .catch(error => {
+                console.log(JSON.stringify(error));
+            });
+    }, []);
+
+
+    const handleDeletar = (id)=>{
+        axios.delete(`http://10.0.2.2:8085/api/deletarcalendario/${id}`);
+        console.log(id)
+    }
+
+    const renderItem = ({ item }) => (
+        <View style={styles.card}>
+            <Text style={styles.itemText}>{item.id}</Text>
+            <Text style={styles.itemText}>{item.calendario}</Text>
+            <Text style={styles.itemText}>{item.materiais}</Text>
+            <Text style={styles.itemText}>{item.peso}</Text>
+            <TouchableOpacity style={styles.updateButton} onPress={handleDeletar}>
+                <Text style={styles.updateButtonText}>Deletar</Text>
+            </TouchableOpacity>
       </View>
+    );
+
+  return (
+    <SafeAreaView style={styles.container}>
+    <ScrollView>
+    <View>
+      <Text style={styles.title}>Você possui coleta agendada</Text>
+      
+
+      <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={item => item.id.toString()}
+                style={styles.list}
+            />
       
       <Text style={styles.note}>*Deixe seus resíduos recicláveis prontos para retirada e fique atento ao seu telefone.</Text>
-      
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.cancelButton} onPress={() => navigation.navigate('Cancelar Coleta')}>
-          <Text style={styles.buttonText}>Cancelar coleta</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.rescheduleButton} onPress={() => navigation.navigate('Agendamento')}>
-          <Text style={styles.buttonText2}>Reagendar</Text>
-        </TouchableOpacity>
-      </View>
     </View>
+    </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -34,12 +62,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#faffe4',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   backButton: {
     position: 'absolute',
     top: 10,
-    left: 20,
+    
   },
+  
   backButtonText: {
     fontSize: 24,
     color: '#018A23',
@@ -49,58 +80,36 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  logo: {
-    width: 40,
-    height: 40,
-  },
-  profile: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginVertical: 20,
-  },
-  destaque: {
-    color: 'orange',
-  },
+      list: {
+        width: '100%',
+        padding: 10,
+    },
+    itemText: {
+        color: 'balck',
+        flex: 1,
+        textAlign: 'center',
+    },
+    item: {
+        flexDirection: 'row',
+        backgroundColor: '#ffff',
+        paddingVertical: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#cccccc'
+    },
+  
   card: {
     backgroundColor: '#f0f0f0',
     padding: 15,
     borderRadius: 8,
     marginBottom: 10,
   },
-  cardText: {
-    fontSize: 16,
-  },
-  cardDate: {
-    fontSize: 16,
-    color: 'orange',
-    marginTop: 5,
-  },
   note: {
     fontSize: 12,
     color: 'grey',
     marginBottom: 20,
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  cancelButton: {
-    backgroundColor: 'red',
-    padding: 15,
-    borderRadius: 8,
-  },
-  rescheduleButton: {
-    borderColor: '#B1CC33',
-    borderWidth: 2,
-    padding: 13,
-    borderRadius: 8,
-  },
+
+  
   buttonText: {
     color: '#FFFF',
     fontWeight: 'bold',
@@ -111,19 +120,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  Text: {
-    fontSize: 16,
-    marginBottom: 10,
-  },
-  Button: {
-    backgroundColor: 'green',
-    padding: 15,
-    borderRadius: 8,
-  },
   ButtonText: {
     color: '#fff',
     fontWeight: 'bold',
-    textAlign: 'center',
+  },
+  updateButton: {
+    flex: 1,
+        backgroundColor: '#FF0000',
+        borderRadius: 5,
+        width: '30%',
+        height: 30,
+        textAlign:'center',
+        justifyContent: 'center',
+    },
+    updateButtonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        justifyContent: 'center',
+    },
+    rescheduleButton: {
+    flex: 1,
+    borderColor: '#B1CC33',
+    width: '30%',
+    height: 30,
+    textAlign:'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    borderWidth: 1,
   },
 });
 

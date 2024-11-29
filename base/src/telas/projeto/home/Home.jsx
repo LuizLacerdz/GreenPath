@@ -1,31 +1,35 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView, FlatList, Linking } from 'react-native';
 import axios from 'axios';
 
 export default function HomeScreen ({navigation}){
-  const [id, setId] = useState('');
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-       axios.get(`http://10.0.2.2:8085/api/editarcalendario/${id}`)
+        axios.get("http://10.0.2.2:8085/api/listaragenda")
             .then(response => {
-                //ordenar os dados pelo id em ordem crescente 
-                const data = response.data.sort((a, b) => a.id - b.id);
-                setData(data);
+                //ordenar os dados pelo id em ordem crescente
+                const sortData = response.data.sort((a, b) => a.id - b.id);
+                setData(sortData);
             })
             .catch(error => {
                 console.log(JSON.stringify(error));
             });
     }, []);
 
+
     // const handleAtualizar = (id) => {
     //     navigation.navigate('Atualizar', { id });
     // };
 
     const renderItem = ({ item }) => (
+      <View>
         <Text style={styles.collectionText}>
-          A próxima coleta municipal será em <Text style={styles.boldText}>{item.data}</Text>
+            <Text style={styles.itemText}>{item.calendario}</Text>
         </Text>
+        
+      </View>
+        
       )
 
   return (
@@ -45,6 +49,12 @@ export default function HomeScreen ({navigation}){
         <Text style={styles.collectionText}>
           A próxima coleta municipal será em <Text style={styles.boldText}></Text>
         </Text>
+        <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={item => item.id.toString()}
+                style={styles.collectionText}
+            />
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Coletas Agendadas')}>
           <Text style={styles.buttonText}>Ver coletas</Text>
         </TouchableOpacity>
@@ -52,7 +62,7 @@ export default function HomeScreen ({navigation}){
 
       {/* Options */}
       <View style={styles.options}>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Mapa')}>
+        <TouchableOpacity style={styles.optionButton} onPress={() => Linking.openURL('https://maps.app.goo.gl/W8iq8JxfPijLZn2v8')}>
           <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
           <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>Veja pontos de coleta</Text>
         </TouchableOpacity>

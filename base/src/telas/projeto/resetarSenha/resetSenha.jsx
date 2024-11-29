@@ -54,7 +54,7 @@ const ResetSenha = ({ navigation }) => {
             }
 
             //fazer a solicidação paea trocar a senha
-            const response = await axios.post('http://10.0.2.2:8085/api/resetsenhaprojeto', data);
+            const response = await axios.post('http://10.0.2.2:8085/api/resetsenhaprojetoGreen', data);
 
             if (response.status === 200) {
                 navigation.navigate('Login');

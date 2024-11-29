@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  Alert
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
@@ -18,7 +19,6 @@ LocaleConfig.defaultLocale = 'pt-br';
 
 export default function Agendamento({navigation}) {
   const [mensagem, setMensagem] = useState('');
-  const [selectedDate, setSelectedDate] = useState('');
   const [data, setData] = useState({
         id: '',
         calendario: '',
@@ -26,17 +26,29 @@ export default function Agendamento({navigation}) {
         peso: '',
         observacao: '',
     });
-    const handleInputChange = (name, value) => {
+    
+
+
+        const handleInputChange = (name, value) => {
         setData({ ...data, [name]: value });
-    };
+        };
+
+        
+
+        
 
     const handleCadastrar = async () => {
-        // if (!data.calendario || !data.materiais || !data.peso || !data.observacao) {
-        //     return;
-        // }
-        console.log(data)
+          
+        
         //envio de informações para a API cadastrar no banco de dados
         try {
+
+          //   if (!data.calendario || !data.materiais || !data.peso || !data.observacao) {
+          //     return;
+          // }
+
+          console.log(data)
+
             await axios.post('http://10.0.2.2:8085/api/cadastrarcalendario', data);
             Alert.alert('Agendado com sucesso!!!');
 
@@ -92,11 +104,11 @@ export default function Agendamento({navigation}) {
                 minDate={new Date().toDateString()} // DATA MINIMA
                 //SUMIR COM AS DATAS ANTERIORES
                 hideExtraDays={true} // SUMIR COM AS DATAS ANTERIORES
-                onDayPress={setSelectedDate} // DATA SELECIONADA
+                onDayPress={setData} // DATA SELECIONADA
                 //MARCAR AS DATAS SELECIONADAS
                 markedDates={
-                  selectedDate && {
-                    [selectedDate.toString]: {selected: true},
+                  data && {
+                    [data.toString]: {selected: true},
                   }
                 }
                 value={data.calendario}
@@ -114,7 +126,7 @@ export default function Agendamento({navigation}) {
             placeholder="Materiais"
             placeholderTextColor={'black'}
             onChangeText={(text) => handleInputChange('materiais', text)}
-            value={data.observacao}
+            value={data.materiais}
             />
 
 
@@ -123,7 +135,7 @@ export default function Agendamento({navigation}) {
             placeholder="Peso"
             placeholderTextColor={'black'}
             onChangeText={(text) => handleInputChange('peso', text)}
-            value={data.observacao}
+            value={data.peso}
             />
 
             <TextInput

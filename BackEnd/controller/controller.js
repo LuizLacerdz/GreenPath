@@ -414,15 +414,20 @@ const userController = {
         }
     },
 
+    //!----------------------------------- (Trabalho SENAI)
+
     //! Registrar coleta no banco de dados com data
 
     registerCalendar: async (req, res) => {
         const { id, calendario, materiais, peso, observacao} = req.body;
-
-        const data = moment(calendario, 'DD/MM/YYYY').format('YYYY-MM-DD');
-
+        // console.log(req.body)
+        // console.log(calendario)
+        const t = req.body.calendario
+        console.log(t)
+        //const data = moment(calendario, 'DD/MM/YYYY').format('YYYY-MM-DD');
+        //console.log(data)
         try {
-                await clientController.registerCalendar(id, data, materiais, peso, observacao);
+                await clientController.registerCalendar(id, calendario, materiais, peso, observacao);
                 res.status(201).json({ msg: "Agendado com sucesso" })
         }
         catch (error) {
@@ -434,20 +439,22 @@ const userController = {
     //!Deletar coleta do banco de dados
 
     deletarIdAgenda: async (req ,res)=>{
-        try{
-            const sql = await clientController.getByIDAgenda(req.params.id);
+        try {
+            const sql = await clientController.getByIdProjetoGreen(req.params.id);
 
-            if(sql.length > 0){
+            // console.log(sql)
+
+            if (sql === null) {
+                res.status(404).json({ msg: "Agenda não encontrada." });
+            }
+            else {
                 await clientController.deleteAgenda(req.params.id);
-                res.status(204).json({msg:"Coleta deletada com sucesso"})
+                res.status(200).json({ msg: "Agenda deletada com sucesso!" });
             }
-            else{
-                res.status(401).json({msg:"A Coleta não existe na base de dados"})
-            }
+        } catch (error) {
+            console.error("Erro ao deletar a Agenda:", error);
         }
-        catch(error) {
-            res.status(500).json({error:"Erro ao tentar deteletar a Coleta"})
-        }
+
     },
 
     //! Reagendar coleta
@@ -525,6 +532,29 @@ const userController = {
         catch(error){
             console.log("erro ao redefinir a senha");
             res.status(500).json({msg: 'Erro no servidor'})
+        }
+    },
+
+    //!Ver se o email registrado está no Bando de Dados
+     getEmailResetProjetoGreen: async(req, res) => {
+        let email = req.body.email;
+
+        email = email.toLowerCase();
+
+        try{
+            const sql = await clientController.getByEmailProjetoGreen(email);
+
+            if(sql.length > 0){
+                res.status(200).json({msg:'Success'})
+            }
+            else{
+                res.status(401).json({msg:'Email não cadastrado no BD'})
+            }
+        }
+        catch(error){
+            if(error){
+                res.status(500).json(error);
+            }
         }
     },
 

@@ -1,57 +1,71 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert, FlatList } from 'react-native';
 import axios from 'axios';
 
-    
-
+  
 export default function cancelarColeta ({navigation}){
-  const [id, setId] = useState(''); //Variavel que vai armazenar o id do produto que será deletado.
-  const [mensagem, setMensagem] = useState('');
+   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
-    const handleDelete = () => {
-        axios.delete(`http://10.0.2.2:8085/api/editarcalendario/${id}`)
-        .then(response => {
-            setMensagem('Registro deletado com sucesso');
-            setId("");
+  //função que recebe o ID para roealizar a exclusã
+  const handleDelete = (id) => {
 
-            navigation.navigate('Home')
-        })
-        .catch(error => {
-            if(error.response && error.response.status === 401){
-                setMensagem("o ID não existe no banco de dados");
+    Alert.alert(
+
+      "Confirmar Exclusão",
+      "Você tem certeza que deseja deletar este Aegdamento?",
+      [
+        {
+
+          text: "Cancelar",
+          onPress: () => console.log("Exclusão cancelada"),
+          style: "cancel",
+        },
+
+        {
+          text: "Sim",
+          onPress: async () => {
+
+            try {
+
+              const res = await axios.delete(`http://10.0.2.2:8085/api/deletarcalendario/${id}`);
+
+
+              if (res.status === 200) {
+
+                setData((currentData) => currentData.filter((item) => item.id !== id));
+
+                setFilteredData((currentData) => currentData.filter((item) => item.id !== id));
+
+                Alert.alert("Agendamento deletada com sucesso!");
+
+                navigation.navigate('Coleta Cancelada');
+              }
+            } catch (err) {
+              Alert.alert("Erro ao deletar Agendamento", err.message);
             }
-            else{
-            setMensagem("Erro ao deletar o usuário")
-            }
-        });
-    };
+          },
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
 
       <Text style={styles.title}>Tem certeza que deseja cancelar este agendamento?</Text>
       
-      <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Associação dos Catadores de Material Reciclável . ASCAS</Text>
-        <Text style={styles.dateText}>01/04 - <Text style={styles.materialText}>Vidro</Text></Text>
-      </View>
-
+    
       {/* Buttons */}
       <TouchableOpacity style={styles.cancelButton} onPress={handleDelete}>
         <Text style={styles.cancelButtonText}>Cancelar coleta</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.rescheduleButton} onPress={() => navigation.navigate('Agendamento')}>
-        <Text style={styles.rescheduleButtonText}>Reagendar</Text>
-      </TouchableOpacity>
 
-      {/* Footer */}
-      <View style={styles.footer}>
-        {/* Footer icons would go here */}
-      </View>
     </View>
   );
 };

@@ -321,8 +321,8 @@ const userModel = {
 
 
     //!Pegar Email GREEN
-    getByEmailProjetoGreen: async(email) => {
-        const [result] = await connection.query("SELECT * FROM usuarios WHERE email=?" , [email])
+    getByIdProjetoGreen: async(id) => {
+        const [result] = await connection.query("SELECT * FROM agenda WHERE id=?" , [id])
         .catch(erro  => console.log(erro));
         return result;
     },
