@@ -17,7 +17,7 @@ const userController = {
     // console.log(calendario)
     const t = req.body.calendario;
     console.log(t);
-    //const data = moment(calendario, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    const data = moment(calendario, 'DD/MM/YYYY').format('YYYY-MM-DD');
     //console.log(data)
     try {
       await clientController.registerCalendar(
@@ -47,7 +47,7 @@ const userController = {
       // console.log(sql)
 
       if (sql === null) {
-        res.status(404).json({ msg: "Agenda não encontrada." });
+        res.status(401).json({ msg: "Agenda não encontrada." });
       } else {
         await clientController.deleteAgenda(req.params.id);
         res.status(200).json({ msg: "Agenda deletada com sucesso!" });
