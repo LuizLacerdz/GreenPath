@@ -1,23 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-export default function CanceladaSucesso ({navigation}) {
+export default function CanceladaSucesso({navigation}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
 
-      <Image source={require('../../../../res/img/Sticker.png')} style={styles.stiker} />
+      <Image
+        source={require('../../../../res/img/Sticker.png')}
+        style={styles.stiker}
+      />
 
       <Text style={styles.title}>Agendamento cancelado com sucesso!</Text>
 
-      <TouchableOpacity style={styles.homeButton} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity
+        style={styles.homeButton}
+        onPress={() => navigation.navigate('Home')}>
         <Text style={styles.homeButtonText}>Ir para a home</Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -72,7 +79,6 @@ const styles = StyleSheet.create({
     color: '#88a22b',
     fontSize: 16,
     fontWeight: 'bold',
-
   },
   footer: {
     flexDirection: 'row',

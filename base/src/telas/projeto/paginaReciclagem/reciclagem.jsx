@@ -1,74 +1,115 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet,ScrollView,SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 
-export default function Reciclagem ({navigation}){
+export default function Reciclagem({navigation}) {
   return (
     <SafeAreaView>
-    <ScrollView>
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
+      <ScrollView>
+        <View style={styles.container}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}>
+            <Text style={styles.backButtonText}>{'<'}</Text>
+          </TouchableOpacity>
 
-      {/* Title */}
-      <Text style={styles.title}>Resíduos que você pode separar para coleta:</Text>
+          {/* Title */}
+          <Text style={styles.title}>
+            Resíduos que você pode separar para coleta:
+          </Text>
 
-      {/* Categories */}
-      <View style={styles.categories}>
-      <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Azul')}>
-          <Image source={require('../../../../res/img/placa_papel.png')} style={styles.icones} />
-          <Text style={styles.categoryTitle}>Papel</Text>
-          <Text style={styles.categoryDescription}>
-            Caixas ou pedaços de Papelão, Jornais, Revistas, Folhas, etc
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Vermelho')}>
-          <Image source={require('../../../../res/img/placa_plástico.png')} style={styles.icones} />
-          <Text style={styles.categoryTitle}>Plástico</Text>
-          <Text style={styles.categoryDescription}>
-            Embalagens, garrafas PET, potes, canudos, tampinhas, etc
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Verde')}>
-          <Image source={require('../../../../res/img/placa_vidro.png')} style={styles.icones} />
-          <Text style={styles.categoryTitle}>Vidro</Text>
-          <Text style={styles.categoryDescription}>
-            Garrafas, frascos e recipientes no geral
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Marrom')}>
-          <Image source={require('../../../../res/img/placa_orgânico.png')} style={styles.icones} />
-          <Text style={styles.categoryTitle}>Orgânico</Text>
-          <Text style={styles.categoryDescription}>
-            Sobras de Alimentos
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Laranja')}>
-          <Image source={require('../../../../res/img/placa_pilhas.png')} style={styles.icones} />
-          <Text style={styles.categoryTitle}>Pilhas</Text>
-          <Text style={styles.categoryDescription}>
-            Pilhas, Baterias
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate('Lixo Amarelo')}>
-          <Image source={require('../../../../res/img/placa_metal.png')} style={styles.icones} />
-          <Text style={styles.categoryTitle}>Metal</Text>
-          <Text style={styles.categoryDescription}>
-            Latas, arames, ferramentas e utensílios de cozinha
-          </Text>
-        </TouchableOpacity>
-      </View>
+          {/* Categories */}
+          <View style={styles.categories}>
+            <TouchableOpacity
+              style={styles.categoryCard}
+              onPress={() => navigation.navigate('Lixo Azul')}>
+              <Image
+                source={require('../../../../res/img/placa_papel.png')}
+                style={styles.icones}
+              />
+              <Text style={styles.categoryTitle}>Papel</Text>
+              <Text style={styles.categoryDescription}>
+                Caixas ou pedaços de Papelão, Jornais, Revistas, Folhas, etc
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.categoryCard}
+              onPress={() => navigation.navigate('Lixo Vermelho')}>
+              <Image
+                source={require('../../../../res/img/placa_plástico.png')}
+                style={styles.icones}
+              />
+              <Text style={styles.categoryTitle}>Plástico</Text>
+              <Text style={styles.categoryDescription}>
+                Embalagens, garrafas PET, potes, canudos, tampinhas, etc
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.categoryCard}
+              onPress={() => navigation.navigate('Lixo Verde')}>
+              <Image
+                source={require('../../../../res/img/placa_vidro.png')}
+                style={styles.icones}
+              />
+              <Text style={styles.categoryTitle}>Vidro</Text>
+              <Text style={styles.categoryDescription}>
+                Garrafas, frascos e recipientes no geral
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.categoryCard}
+              onPress={() => navigation.navigate('Lixo Marrom')}>
+              <Image
+                source={require('../../../../res/img/placa_orgânico.png')}
+                style={styles.icones}
+              />
+              <Text style={styles.categoryTitle}>Orgânico</Text>
+              <Text style={styles.categoryDescription}>
+                Sobras de Alimentos
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.categoryCard}
+              onPress={() => navigation.navigate('Lixo Laranja')}>
+              <Image
+                source={require('../../../../res/img/placa_pilhas.png')}
+                style={styles.icones}
+              />
+              <Text style={styles.categoryTitle}>Pilhas</Text>
+              <Text style={styles.categoryDescription}>Pilhas, Baterias</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.categoryCard}
+              onPress={() => navigation.navigate('Lixo Amarelo')}>
+              <Image
+                source={require('../../../../res/img/placa_metal.png')}
+                style={styles.icones}
+              />
+              <Text style={styles.categoryTitle}>Metal</Text>
+              <Text style={styles.categoryDescription}>
+                Latas, arames, ferramentas e utensílios de cozinha
+              </Text>
+            </TouchableOpacity>
+          </View>
 
-      {/* Back Button */}
-      <TouchableOpacity style={styles.ReturnButton} onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.ReturnButtonText}>Voltar</Text>
-      </TouchableOpacity>
-
-    </View>
-    </ScrollView>
+          {/* Back Button */}
+          <TouchableOpacity
+            style={styles.ReturnButton}
+            onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.ReturnButtonText}>Voltar</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -126,7 +167,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
     marginTop: 5,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   backButton: {
     borderWidth: 1,
@@ -149,13 +190,13 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
   },
-    ReturnButton: {
+  ReturnButton: {
     borderWidth: 1,
     backgroundColor: '#0A9D3C',
     padding: 10,
     borderRadius: 5,
   },
-    ReciclagemButton: {
+  ReciclagemButton: {
     padding: 10,
     borderRadius: 5,
     height: 100,
@@ -163,6 +204,6 @@ const styles = StyleSheet.create({
   ReturnButtonText: {
     color: 'white',
     textAlign: 'center',
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
 });

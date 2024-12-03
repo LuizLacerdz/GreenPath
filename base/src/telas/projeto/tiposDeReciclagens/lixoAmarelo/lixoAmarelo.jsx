@@ -25,10 +25,12 @@ export default function lixoAmarelo({navigation}) {
           styles.sidebarContainer,
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}>
           {/* Back button icon */}
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
+          <Text style={styles.backButtonText}>{'<'}</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Text style={styles.closeButtonText}>Fechar</Text>
         </TouchableOpacity>
@@ -63,14 +65,11 @@ export default function lixoAmarelo({navigation}) {
   return (
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
-
         {/*  Vela e Lanternas */}
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Velas e{'\n'}Lanternas
-            </Text>
+            <Text style={styles.texto}>Velas e{'\n'}Lanternas</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Velas e Lanterna')}
@@ -89,9 +88,7 @@ export default function lixoAmarelo({navigation}) {
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Vaso para{'\n'}Plantas
-            </Text>
+            <Text style={styles.texto}>Vaso para{'\n'}Plantas</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Vaso Metal')}
@@ -107,11 +104,10 @@ export default function lixoAmarelo({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('Reciclar Metal')}
-            style={styles.botaoReciclar}>
-            <Text color ="#000">Como Reciclar</Text>
+          onPress={() => navigation.navigate('Reciclar Metal')}
+          style={styles.botaoReciclar}>
+          <Text color="#000">Como Reciclar</Text>
         </Button>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -124,7 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },
@@ -199,7 +195,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#e9e51e',
     color: 'white',
     borderRadius: 30,
-    
   },
   botaoReciclar: {
     marginTop: 20,

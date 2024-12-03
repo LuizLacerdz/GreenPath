@@ -6,14 +6,16 @@ import {
   Image,
   ScrollView,
   SectionList,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 const bilboque = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
@@ -21,44 +23,39 @@ const bilboque = ({navigation}) => {
           <Text style={styles.header}>IoIô de Garrafa PET</Text>
         </View>
 
-          <Image
-            source={require('../../../../../res/img/bilboque.png')}
-            style={styles.image}
-          />
-          <Text style={styles.subHeader}>Ingredientes:</Text>
-          <SectionList
-            sections={[
-              {
-                title: 'Bilboque de garrafa PET',
-                data: [
-                  'Garrafa PET',
-                  'Fita adesiva',
-                  'Barbante',
-                  'Papel',
-                  'Tesoura',
-                ],
-              },
-            ]}
-            renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-            renderSectionHeader={({section}) => (
-              <Text style={styles.sectionHeader}>{section.title}</Text>
-            )}
-            keyExtractor={item => `basicListEntry-${item}`}
-          />
-          <Text style={styles.subHeader}>Modo de Preparo:</Text>
-          <Text style={styles.text}>
-            {'\t'} Corte a garrafa pet ao meio e cole fita adesiva na borda,
-            para não machucar o dedo. Você vai usar a parte da garrafa que tem o
-            gargalo. 
-            ● Faça uma bolinha de papel amassado e passe fita adesiva
-            em volta dela, para deixa-la firme. 
-            ● Prenda uma das pontas do
-            barbante na bolinha e outra dentro da garrafa. 
-            ● Jogue o bilboquê
-            para cima, sem soltá-lo. 
-            ● Tente fazer a bolinha cair dentro do
-            brinquedo.
-          </Text>
+        <Image
+          source={require('../../../../../res/img/bilboque.png')}
+          style={styles.image}
+        />
+        <Text style={styles.subHeader}>Ingredientes:</Text>
+        <SectionList
+          sections={[
+            {
+              title: 'Bilboque de garrafa PET',
+              data: [
+                'Garrafa PET',
+                'Fita adesiva',
+                'Barbante',
+                'Papel',
+                'Tesoura',
+              ],
+            },
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => (
+            <Text style={styles.sectionHeader}>{section.title}</Text>
+          )}
+          keyExtractor={item => `basicListEntry-${item}`}
+        />
+        <Text style={styles.subHeader}>Modo de Preparo:</Text>
+        <Text style={styles.text}>
+          {'\t'} Corte a garrafa pet ao meio e cole fita adesiva na borda, para
+          não machucar o dedo. Você vai usar a parte da garrafa que tem o
+          gargalo. ● Faça uma bolinha de papel amassado e passe fita adesiva em
+          volta dela, para deixa-la firme. ● Prenda uma das pontas do barbante
+          na bolinha e outra dentro da garrafa. ● Jogue o bilboquê para cima,
+          sem soltá-lo. ● Tente fazer a bolinha cair dentro do brinquedo.
+        </Text>
       </ScrollView>
     </View>
   );
@@ -69,7 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },

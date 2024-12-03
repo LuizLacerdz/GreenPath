@@ -6,14 +6,16 @@ import {
   Image,
   ScrollView,
   SectionList,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 const cascaDeBatata = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },

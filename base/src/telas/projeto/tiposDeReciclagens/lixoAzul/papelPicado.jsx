@@ -12,30 +12,32 @@ import {
 const papelPicado = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
         <View>
           <Text style={styles.header}>Decoração Papel Picado</Text>
         </View>
-          <Image
-            source={require('../../../../../res/img/papelPicadDiaDosMortos.jpg')}
-            style={styles.image}
-          />
+        <Image
+          source={require('../../../../../res/img/papelPicadDiaDosMortos.jpg')}
+          style={styles.image}
+        />
 
-          <Text style={styles.subHeader}>Modo de Preparo:</Text>
-          <Text style={styles.text}>
-            {'\t'}O papel picado para o Dia dos Mortos é feito empilhando várias
-            camadas de papel de seda colorido e perfurando-as com cinzel e
-            martelo. {'\n'}
-            {'\t'} O papel picado é uma arte artesanal mexicana que é usada em
-            todo o ano, mas especialmente no Dia dos Mortos. É uma das
-            principais decorações do altar, representando o ar, um dos quatro
-            elementos, e dando cor à mesa. Além disso, o papel picado também é
-            usado nas ruas, simbolizando o vento e a fragilidade da vida.
-          </Text>
+        <Text style={styles.subHeader}>Modo de Preparo:</Text>
+        <Text style={styles.text}>
+          {'\t'}O papel picado para o Dia dos Mortos é feito empilhando várias
+          camadas de papel de seda colorido e perfurando-as com cinzel e
+          martelo. {'\n'}
+          {'\t'} O papel picado é uma arte artesanal mexicana que é usada em
+          todo o ano, mas especialmente no Dia dos Mortos. É uma das principais
+          decorações do altar, representando o ar, um dos quatro elementos, e
+          dando cor à mesa. Além disso, o papel picado também é usado nas ruas,
+          simbolizando o vento e a fragilidade da vida.
+        </Text>
       </ScrollView>
     </View>
   );
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 
- text: {
+  text: {
     fontSize: 20,
     marginLeft: 8,
     marginRight: 5,

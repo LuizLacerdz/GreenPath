@@ -1,21 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-export default function PaginaSucesso ({navigation}){
+export default function PaginaSucesso({navigation}) {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: 'https://link-to-checkmark-image.com/checkmark.png' }}
+        source={{uri: 'https://link-to-checkmark-image.com/checkmark.png'}}
         style={styles.checkmark}
       />
       <Text style={styles.title}>Tudo certo!</Text>
       <Text style={styles.subtitle}>Sua senha foi alterada com sucesso!</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Login')}>
         <Text style={styles.buttonText}>Fazer login</Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

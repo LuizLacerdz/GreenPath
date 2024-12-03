@@ -1,11 +1,20 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, ScrollView, TouchableOpacity,} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 
 const reciclarAzul = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
@@ -25,8 +34,10 @@ const reciclarAzul = ({navigation}) => {
             {'\n'}
             MAS, ATENÇÃO!!!!!!
             {'\n'}
-            Nada de descartar na lixeira azul, papel higiênico, extratos bancários, guardanapos e lenços sujos, fotografias, 
-            etiquetas e fitas adesivas, papéis com parafina, revestido com cera e silicone, papel vegetal, celofane e carbono.
+            Nada de descartar na lixeira azul, papel higiênico, extratos
+            bancários, guardanapos e lenços sujos, fotografias, etiquetas e
+            fitas adesivas, papéis com parafina, revestido com cera e silicone,
+            papel vegetal, celofane e carbono.
           </Text>
 
           <Text style={styles.text} numberOfLines={30}>
@@ -43,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },

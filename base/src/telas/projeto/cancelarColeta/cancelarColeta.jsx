@@ -1,74 +1,82 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert, FlatList } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Button,
+  TouchableOpacity,
+  Alert,
+  FlatList,
+} from 'react-native';
 import axios from 'axios';
 
-  
-export default function cancelarColeta ({navigation}){
-   const [data, setData] = useState([]);
+export default function cancelarColeta({navigation}) {
+  const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   //função que recebe o ID para roealizar a exclusã
-  const handleDelete = (id) => {
-
+  const handleDelete = id => {
     Alert.alert(
-
-      "Confirmar Exclusão",
-      "Você tem certeza que deseja deletar este Aegdamento?",
+      'Confirmar Exclusão',
+      'Você tem certeza que deseja deletar este Aegdamento?',
       [
         {
-
-          text: "Cancelar",
-          onPress: () => console.log("Exclusão cancelada"),
-          style: "cancel",
+          text: 'Cancelar',
+          onPress: () => console.log('Exclusão cancelada'),
+          style: 'cancel',
         },
 
         {
-          text: "Sim",
+          text: 'Sim',
           onPress: async () => {
-
             try {
-
-              const res = await axios.delete(`http://10.0.2.2:8085/api/deletarcalendario/${id}`);
-
+              const res = await axios.delete(
+                `http://10.0.2.2:8085/api/deletarcalendario/${id}`,
+              );
 
               if (res.status === 200) {
+                setData(currentData =>
+                  currentData.filter(item => item.id !== id),
+                );
 
-                setData((currentData) => currentData.filter((item) => item.id !== id));
+                setFilteredData(currentData =>
+                  currentData.filter(item => item.id !== id),
+                );
 
-                setFilteredData((currentData) => currentData.filter((item) => item.id !== id));
-
-                Alert.alert("Agendamento deletada com sucesso!");
+                Alert.alert('Agendamento deletada com sucesso!');
 
                 navigation.navigate('Coleta Cancelada');
               }
             } catch (err) {
-              Alert.alert("Erro ao deletar Agendamento", err.message);
+              Alert.alert('Erro ao deletar Agendamento', err.message);
             }
           },
         },
       ],
-      { cancelable: false }
+      {cancelable: false},
     );
   };
 
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
 
-      <Text style={styles.title}>Tem certeza que deseja cancelar este agendamento?</Text>
-      
-    
+      <Text style={styles.title}>
+        Tem certeza que deseja cancelar este agendamento?
+      </Text>
+
       {/* Buttons */}
       <TouchableOpacity style={styles.cancelButton} onPress={handleDelete}>
         <Text style={styles.cancelButtonText}>Cancelar coleta</Text>
       </TouchableOpacity>
-
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

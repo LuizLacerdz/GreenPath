@@ -1,16 +1,27 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Link } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Link,
+} from 'react-native';
 
-
-export default function Perfil1 ({navigation}){
+export default function Perfil1({navigation}) {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <View style={styles.profileContainer}>
-        <Image source={require('../../../../res/img/perfilMasc.png')} style={styles.veraLucia}/>
+        <Image
+          source={require('../../../../res/img/perfilMasc.png')}
+          style={styles.veraLucia}
+        />
         <View style={styles.infoContainer}>
           <Text style={styles.name}>Alessandro Caetano</Text>
           <View style={styles.coletasContainer}>
@@ -20,15 +31,27 @@ export default function Perfil1 ({navigation}){
           <Text style={styles.materials}>Papel/Papelão, Latas e Plásticos</Text>
         </View>
         <View style={styles.iconsContainer}>
-          <Image source={require('../../../../res/img/iconPapel.png')} style={styles.icons}/>
-          <Image source={require('../../../../res/img/icon.png')} style={styles.icons}/>
-          <Image source={require('../../../../res/img/iconGarrafa.png')} style={styles.icons}/>
+          <Image
+            source={require('../../../../res/img/iconPapel.png')}
+            style={styles.icons}
+          />
+          <Image
+            source={require('../../../../res/img/icon.png')}
+            style={styles.icons}
+          />
+          <Image
+            source={require('../../../../res/img/iconGarrafa.png')}
+            style={styles.icons}
+          />
         </View>
       </View>
       <Text style={styles.contactTitle}>Entre em contato com Alessandro:</Text>
       <View style={styles.contactButtons}>
         <TouchableOpacity style={styles.whatsappButton}>
-          <Image source={require('../../../../res/img/whatsappIcon.png')} style={styles.whatsappIcon} />
+          <Image
+            source={require('../../../../res/img/whatsappIcon.png')}
+            style={styles.whatsappIcon}
+          />
           <Text style={styles.whatsappText}>Whatsapp</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.callButton}>
@@ -37,7 +60,7 @@ export default function Perfil1 ({navigation}){
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -154,7 +177,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.5,
     borderTopColor: '#ccc',
   },
-    veraLucia: {
+  veraLucia: {
     marginRight: 16,
     width: 70,
     height: 70,
@@ -165,7 +188,5 @@ const styles = StyleSheet.create({
   },
   icons: {
     margin: 15,
-  }
-
+  },
 });
-

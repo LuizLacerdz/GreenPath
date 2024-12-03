@@ -25,7 +25,6 @@ export default function lixoAzul({navigation}) {
           styles.sidebarContainer,
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
-        
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Text style={styles.closeButtonText}>Fechar</Text>
         </TouchableOpacity>
@@ -60,17 +59,16 @@ export default function lixoAzul({navigation}) {
   return (
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
-        
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}>
           {/* Back button icon */}
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
+          <Text style={styles.backButtonText}>{'<'}</Text>
+        </TouchableOpacity>
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Papel{'\n'}Picado
-            </Text>
+            <Text style={styles.texto}>Papel{'\n'}Picado</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Papel Picado')}
@@ -89,9 +87,7 @@ export default function lixoAzul({navigation}) {
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Papel{'\n'} Mache
-            </Text>
+            <Text style={styles.texto}>Papel{'\n'} Mache</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Papel Mache')}
@@ -107,11 +103,10 @@ export default function lixoAzul({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('Reciclar Azul')}
-            style={styles.botaoReciclar}>
-            <Text color ="#fff">Como Reciclar</Text>
+          onPress={() => navigation.navigate('Reciclar Azul')}
+          style={styles.botaoReciclar}>
+          <Text color="#fff">Como Reciclar</Text>
         </Button>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -124,7 +119,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },
@@ -198,7 +193,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#567ebb',
     color: '#fff',
     borderRadius: 30,
-    
   },
   botaoReciclar: {
     marginTop: 20,

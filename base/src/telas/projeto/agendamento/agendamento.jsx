@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
-  Alert
+  Alert,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
@@ -20,52 +20,43 @@ LocaleConfig.defaultLocale = 'pt-br';
 export default function Agendamento({navigation}) {
   const [mensagem, setMensagem] = useState('');
   const [data, setData] = useState({
-        id: '',
-        calendario: '',
-        materiais: '',
-        peso: '',
-        observacao: '',
-    });
-    
+    id: '',
+    calendario: '',
+    materiais: '',
+    peso: '',
+    observacao: '',
+  });
 
+  const handleInputChange = (name, value) => {
+    setData({...data, [name]: value});
+  };
 
-        const handleInputChange = (name, value) => {
-        setData({ ...data, [name]: value });
-        };
+  const handleCadastrar = async () => {
+    //envio de informações para a API cadastrar no banco de dados
+    try {
+      //   if (!data.calendario || !data.materiais || !data.peso || !data.observacao) {
+      //     return;
+      // }
 
-        
+      console.log(data);
 
-        
+      await axios.post('http://10.0.2.2:8085/api/cadastrarcalendario', data);
+      Alert.alert('Agendado com sucesso!!!');
 
-    const handleCadastrar = async () => {
-          
-        
-        //envio de informações para a API cadastrar no banco de dados
-        try {
+      setData('');
 
-          //   if (!data.calendario || !data.materiais || !data.peso || !data.observacao) {
-          //     return;
-          // }
-
-          console.log(data)
-
-            await axios.post('http://10.0.2.2:8085/api/cadastrarcalendario', data);
-            Alert.alert('Agendado com sucesso!!!');
-
-            setData('');
-
-            navigation.navigate('Home');
-        } catch (error) {
-            console.log(error);
-            if (error.response.status === 401) {
-                setMensagem(
-                    'A data ' + data.calendario + ' já existe no banco de dados',
-                );
-            } else {
-                console.log(error);
-            }
-        }
-    };
+      navigation.navigate('Home');
+    } catch (error) {
+      console.log(error);
+      if (error.response.status === 401) {
+        setMensagem(
+          'A data ' + data.calendario + ' já existe no banco de dados',
+        );
+      } else {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <SafeAreaView>
@@ -76,7 +67,7 @@ export default function Agendamento({navigation}) {
             onPress={() => navigation.goBack()}>
             <Text style={styles.backButtonText}>{'<'}</Text>
           </TouchableOpacity>
-          
+
           <View style={styles.content}>
             <Text style={styles.title}>Associação de Reciclagem</Text>
             {/* CALENDARIO */}
@@ -121,33 +112,32 @@ export default function Agendamento({navigation}) {
                 Quais materiais serão coletados?
               </Text>
 
-            <TextInput
-            style={styles.input}
-            placeholder="Materiais"
-            placeholderTextColor={'black'}
-            onChangeText={(text) => handleInputChange('materiais', text)}
-            value={data.materiais}
-            />
+              <TextInput
+                style={styles.input}
+                placeholder="Materiais"
+                placeholderTextColor={'black'}
+                onChangeText={text => handleInputChange('materiais', text)}
+                value={data.materiais}
+              />
 
+              <TextInput
+                style={styles.input}
+                placeholder="Peso"
+                placeholderTextColor={'black'}
+                onChangeText={text => handleInputChange('peso', text)}
+                value={data.peso}
+              />
 
-            <TextInput
-            style={styles.input}
-            placeholder="Peso"
-            placeholderTextColor={'black'}
-            onChangeText={(text) => handleInputChange('peso', text)}
-            value={data.peso}
-            />
-
-            <TextInput
-            style={styles.input}
-            placeholder="Comente sobre seus itens, horários para recebimento, etc."
-            placeholderTextColor={'black'}
-            onChangeText={(text) => handleInputChange('observacao', text)}
-            value={data.observacao}
-            />
-            <TouchableOpacity style={styles.button} onPress={handleCadastrar}>
-              <Text style={styles.buttonText}>Agendar coleta</Text>
-            </TouchableOpacity>
+              <TextInput
+                style={styles.input}
+                placeholder="Comente sobre seus itens, horários para recebimento, etc."
+                placeholderTextColor={'black'}
+                onChangeText={text => handleInputChange('observacao', text)}
+                value={data.observacao}
+              />
+              <TouchableOpacity style={styles.button} onPress={handleCadastrar}>
+                <Text style={styles.buttonText}>Agendar coleta</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -226,13 +216,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-    input: {
+  input: {
     height: 50,
     borderColor: '#fff',
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 15,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
 });

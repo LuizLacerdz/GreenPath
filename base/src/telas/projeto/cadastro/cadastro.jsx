@@ -1,114 +1,132 @@
 import React, {useState} from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Alert,
+} from 'react-native';
 import axios from 'axios';
-export default function Cadastro ({navigation}) {
-    const [mensagem, setMensagem] = useState('')
-    const [formData, setFormData] = useState({
-        id: '',
-        email: '',
-        nome: '',
-        senha: '',
-    });
+export default function Cadastro({navigation}) {
+  const [mensagem, setMensagem] = useState('');
+  const [formData, setFormData] = useState({
+    id: '',
+    email: '',
+    nome: '',
+    senha: '',
+  });
 
-    const handleInputChange = (name, value) => {
-        setFormData({ ...formData, [name]: value });
-    };
+  const handleInputChange = (name, value) => {
+    setFormData({...formData, [name]: value});
+  };
 
-    //validar se campos estão vazios
+  //validar se campos estão vazios
 
-    const handleCadastrar = async () => {
-        if (!formData.nome || !formData.email || !formData.senha) {
-            setMensagem('Todos os campos são obrigatórios')
-            return;
-        }
-        //envio de informações para a API cadastrar no banco de dados
-        try {
-            await axios.post('http://10.0.2.2:8085/api/cadastroprojetoGreen', formData);
-            Alert.alert('Cadastro realizado com sucesso');
+  const handleCadastrar = async () => {
+    if (!formData.nome || !formData.email || !formData.senha) {
+      setMensagem('Todos os campos são obrigatórios');
+      return;
+    }
+    //envio de informações para a API cadastrar no banco de dados
+    try {
+      await axios.post(
+        'http://10.0.2.2:8085/api/cadastroprojetoGreen',
+        formData,
+      );
+      Alert.alert('Cadastro realizado com sucesso');
 
-            setFormData('');
+      setFormData('');
 
-            navigation.navigate('Login')
-        }
-        catch (error) {
-            console.log(error)
-            if (error.response.status === 401) {
-                setMensagem('O email ' + formData.email + ' já existe no banco de dados')
-            }
-            else {
-                console.log(error)
-            }
-        }
+      navigation.navigate('Login');
+    } catch (error) {
+      console.log(error);
+      if (error.response.status === 401) {
+        setMensagem(
+          'O email ' + formData.email + ' já existe no banco de dados',
+        );
+      } else {
+        console.log(error);
+      }
+    }
 
-        // console.log(handleCadastrar);
-    };
-
-
-
+    // console.log(handleCadastrar);
+  };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
-      
+
       <Text style={styles.header}>Olá!</Text>
       <Text style={styles.subHeader}>Vamos começar?</Text>
-      
+
       <TextInput
-            style={styles.input}
-            placeholder="Nome"
-            placeholderTextColor={'black'}
-            onChangeText={(text) => handleInputChange ('nome', text)}
-            value={formData.nome}
-          />
+        style={styles.input}
+        placeholder="Nome"
+        placeholderTextColor={'black'}
+        onChangeText={text => handleInputChange('nome', text)}
+        value={formData.nome}
+      />
       <TextInput
-              style={styles.input}
-              placeholder='Email'
-              placeholderTextColor={'black'}
-              onChangeText={(text) => handleInputChange('email', text.toLowerCase())}
-              value={formData.email}
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor={'black'}
+        onChangeText={text => handleInputChange('email', text.toLowerCase())}
+        value={formData.email}
       />
 
       <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            placeholderTextColor={'black'}
-            onChangeText={(text) => handleInputChange('senha', text)}
-            leftIcon={{ type: 'font-awesome', name: 'lock', color: 'white' }}
-            secureTextEntry
-            value={formData.senha}
-          />
+        style={styles.input}
+        placeholder="Senha"
+        placeholderTextColor={'black'}
+        onChangeText={text => handleInputChange('senha', text)}
+        leftIcon={{type: 'font-awesome', name: 'lock', color: 'white'}}
+        secureTextEntry
+        value={formData.senha}
+      />
 
       <TouchableOpacity style={styles.button} onPress={handleCadastrar}>
         <Text style={styles.buttonText}>Avançar</Text>
       </TouchableOpacity>
-      
-      {mensagem ? <Text style={styles.mensagem}>{mensagem}</Text>:null}
-      
+
+      {mensagem ? <Text style={styles.mensagem}>{mensagem}</Text> : null}
 
       <Text style={styles.orText}>Ou cadastra-se com</Text>
 
       <View style={styles.socialContainer}>
         <TouchableOpacity style={styles.socialButton}>
-          <Image source={require('../../../../res/img/facebook.png')} style={styles.socialIcon} />
+          <Image
+            source={require('../../../../res/img/facebook.png')}
+            style={styles.socialIcon}
+          />
         </TouchableOpacity>
         <TouchableOpacity style={styles.socialButton}>
-          <Image source={require('../../../../res/img/google.png')} style={styles.socialIcon} />
+          <Image
+            source={require('../../../../res/img/google.png')}
+            style={styles.socialIcon}
+          />
         </TouchableOpacity>
         <TouchableOpacity style={styles.socialButton}>
-          <Image source={require('../../../../res/img/apple.png')} style={styles.socialIcon} />
+          <Image
+            source={require('../../../../res/img/apple.png')}
+            style={styles.socialIcon}
+          />
         </TouchableOpacity>
       </View>
 
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-      <Text style={styles.loginPrompt}>
-        Já tem uma conta? <Text style={styles.loginLink}>Faça seu Login</Text>
-      </Text>
+        <Text style={styles.loginPrompt}>
+          Já tem uma conta? <Text style={styles.loginLink}>Faça seu Login</Text>
+        </Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -140,7 +158,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 15,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   button: {
     backgroundColor: '#018A23',
@@ -183,11 +201,10 @@ const styles = StyleSheet.create({
     color: '#018A23',
     fontWeight: 'bold',
     marginLeft: 136,
-    fontSize: 16
+    fontSize: 16,
   },
-    loginPrompt: {
+  loginPrompt: {
     textAlign: 'center',
     color: '#999999',
-    
   },
 });

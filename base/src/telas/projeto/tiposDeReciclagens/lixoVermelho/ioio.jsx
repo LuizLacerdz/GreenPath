@@ -12,8 +12,10 @@ import {
 const cascaDeBanana = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
@@ -21,42 +23,41 @@ const cascaDeBanana = ({navigation}) => {
           <Text style={styles.header}>IoIô de Garrafa PET</Text>
         </View>
 
-          <Image
-            source={require('../../../../../res/img/ioio.png')}
-            style={styles.image}
-          />
-          <Text style={styles.subHeader}>Ingredientes:</Text>
-          <SectionList
-            sections={[
-              {
-                title: 'IoIô de Garrafa PET',
-                data: [
-                  '2 garrafa PET (250 ou 600 ML)',
-                  'Lástex',
-                  'Anel de Garrafa PET',
-                  'Grãos ou contas ou pedaço de EVA picados para enfeitar',
-                ],
-              },
-            ]}
-            renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-            renderSectionHeader={({section}) => (
-              <Text style={styles.sectionHeader}>{section.title}</Text>
-            )}
-            keyExtractor={item => `basicListEntry-${item}`}
-          />
-          <Text style={styles.subHeader}>Modo de Preparo:</Text>
-          <Text style={styles.text}>
-            {'\t'} Convide seu filho participar da atividade. Juntos separem os
-            materiais a serem utilizados. Faça um furo de 2cm acima do fundo da
-            garrafa. Faça isso com as 2 garrafas. Então peça para que seu filho
-            coloque os grãos ou contas dentro e encaixe um no outro. Corte cerca
-            de 2metros de lástex dobre ao meio e de um nó nas pontas. Amarre o
-            lástex na junção das duas garrafas e de duas voltas, deixando sobrar
-            a mesma a quantidade de lástex dos dois lados. junte as pontas e
-            amarre no anel dando vários nós para ficar bem preso. Agora deixe
-            que ele decore como quiser. Boa diversão.
-          </Text>
-
+        <Image
+          source={require('../../../../../res/img/ioio.png')}
+          style={styles.image}
+        />
+        <Text style={styles.subHeader}>Ingredientes:</Text>
+        <SectionList
+          sections={[
+            {
+              title: 'IoIô de Garrafa PET',
+              data: [
+                '2 garrafa PET (250 ou 600 ML)',
+                'Lástex',
+                'Anel de Garrafa PET',
+                'Grãos ou contas ou pedaço de EVA picados para enfeitar',
+              ],
+            },
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => (
+            <Text style={styles.sectionHeader}>{section.title}</Text>
+          )}
+          keyExtractor={item => `basicListEntry-${item}`}
+        />
+        <Text style={styles.subHeader}>Modo de Preparo:</Text>
+        <Text style={styles.text}>
+          {'\t'} Convide seu filho participar da atividade. Juntos separem os
+          materiais a serem utilizados. Faça um furo de 2cm acima do fundo da
+          garrafa. Faça isso com as 2 garrafas. Então peça para que seu filho
+          coloque os grãos ou contas dentro e encaixe um no outro. Corte cerca
+          de 2metros de lástex dobre ao meio e de um nó nas pontas. Amarre o
+          lástex na junção das duas garrafas e de duas voltas, deixando sobrar a
+          mesma a quantidade de lástex dos dois lados. junte as pontas e amarre
+          no anel dando vários nós para ficar bem preso. Agora deixe que ele
+          decore como quiser. Boa diversão.
+        </Text>
       </ScrollView>
     </View>
   );
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },

@@ -25,9 +25,11 @@ export default function lixoVermelho({navigation}) {
           styles.sidebarContainer,
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}>
+          <Text style={styles.backButtonText}>{'<'}</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Text style={styles.closeButtonText}>Fechar</Text>
         </TouchableOpacity>
@@ -62,7 +64,6 @@ export default function lixoVermelho({navigation}) {
   return (
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
-
         {/*  IoIo */}
 
         <View style={styles.containerLearn}>
@@ -109,9 +110,7 @@ export default function lixoVermelho({navigation}) {
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-               Bilboquê {'\n'} de garrafa
-            </Text>
+            <Text style={styles.texto}>Bilboquê {'\n'} de garrafa</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Bilboque')}
@@ -127,11 +126,10 @@ export default function lixoVermelho({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('Reciclar Vermelho')}
-            style={styles.botaoReciclar}>
-            <Text color ="#fff">Como Reciclar</Text>
+          onPress={() => navigation.navigate('Reciclar Vermelho')}
+          style={styles.botaoReciclar}>
+          <Text color="#fff">Como Reciclar</Text>
         </Button>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -144,7 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },
@@ -318,7 +316,7 @@ const styles = StyleSheet.create({
   titleS: {
     flexDirection: 'row',
   },
-    botaoReciclar: {
+  botaoReciclar: {
     marginTop: 20,
     marginLeft: 120,
     padding: 10,

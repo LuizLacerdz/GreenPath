@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import {View, SafeAreaView, ScrollView, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {Button} from 'galio-framework';
 import {Text} from '@rneui/themed';
@@ -23,10 +18,12 @@ export default function LixoLaranja({navigation}) {
           styles.sidebarContainer,
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}>
           {/* Back button icon */}
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
+          <Text style={styles.backButtonText}>{'<'}</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Text style={styles.closeButtonText}>Fechar</Text>
         </TouchableOpacity>
@@ -61,25 +58,24 @@ export default function LixoLaranja({navigation}) {
   return (
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
-      <View>
+        <View>
           <Text style={styles.header}>ATENÇÃO !!!</Text>
         </View>
-        <Text style = {styles.texto}>
-        {"\n"}
-        {"\n"}
-        {"\n"}
-        {"\n"}
-        Pilhas e Baterias são materiais muito perigosos e prejudiciais a saúde para 
-        serem reutilizados como outros objetos listados aqui no aplicativo, portanto, 
-        clique no botão abaixo para se informar de como fazer o descarte correto desses 
-        objetos.
+        <Text style={styles.texto}>
+          {'\n'}
+          {'\n'}
+          {'\n'}
+          {'\n'}
+          Pilhas e Baterias são materiais muito perigosos e prejudiciais a saúde
+          para serem reutilizados como outros objetos listados aqui no
+          aplicativo, portanto, clique no botão abaixo para se informar de como
+          fazer o descarte correto desses objetos.
         </Text>
         <Button
-            onPress={() => navigation.navigate('Reciclar Laranja')}
-            style={styles.botao}>
-            <Text color ="#fff">Como Reciclar</Text>
+          onPress={() => navigation.navigate('Reciclar Laranja')}
+          style={styles.botao}>
+          <Text color="#fff">Como Reciclar</Text>
         </Button>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -92,7 +88,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },
@@ -128,9 +124,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   texto: {
-        fontSize: 20,
-        marginLeft: 8,
-        marginRight: 5,
+    fontSize: 20,
+    marginLeft: 8,
+    marginRight: 5,
   },
   botao: {
     marginTop: 20,

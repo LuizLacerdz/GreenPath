@@ -1,124 +1,145 @@
-import React, { useState } from 'react';
-import { View, Button, TextInput, Alert, Image, StyleSheet, ScrollView, KeyboardAvoidingView, Text,TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Button,
+  TextInput,
+  Alert,
+  Image,
+  StyleSheet,
+  ScrollView,
+  KeyboardAvoidingView,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import axios from 'axios';
 
-const ResetSenha = ({ navigation }) => {
-    const [email, setEmail] = useState('');
-    const [novaSenha, setNovaSenha] = useState('');
-    const [confirmaSenha, setConfirmaSenha] = useState('');
-    const [mostrarFormulario, setMostrarFormula] = useState('');
+const ResetSenha = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [novaSenha, setNovaSenha] = useState('');
+  const [confirmaSenha, setConfirmaSenha] = useState('');
+  const [mostrarFormulario, setMostrarFormula] = useState('');
 
-    const handleResetSenha = async () => {
-        try {
-            //verificar se o email está preenchido
-            if (!email) {
-                Alert.alert("Por favor, insira seu email")
-            }
+  const handleResetSenha = async () => {
+    try {
+      //verificar se o email está preenchido
+      if (!email) {
+        Alert.alert('Por favor, insira seu email');
+      }
 
-            const data = {
-                email: email
-            }
+      const data = {
+        email: email,
+      };
 
-            //verificar se o email existe no banco de dados
-            const response = await axios.post('http://10.0.2.2:8085/api/resetprojetoGreen', data);
+      //verificar se o email existe no banco de dados
+      const response = await axios.post(
+        'http://10.0.2.2:8085/api/resetprojetoGreen',
+        data,
+      );
 
-            if (response.status === 200) {
-                //Exibir o formulario para trocar a senha
-                setMostrarFormula(true);
-            }
-            else if (response.status === 404) {
-                Alert.alert('Email não encontrado. Verifique o email digitado');
-            }
-        }
-        catch (error) {
-            if (error.response && error.response.status === 401) {
-                Alert.alert('Email não encontrado. Verifique o email digitado');
-            }
-            else {
-                Alert.alert('Erro ao resetar a senha:', error);
-            }
-        }
-    };
+      if (response.status === 200) {
+        //Exibir o formulario para trocar a senha
+        setMostrarFormula(true);
+      } else if (response.status === 404) {
+        Alert.alert('Email não encontrado. Verifique o email digitado');
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        Alert.alert('Email não encontrado. Verifique o email digitado');
+      } else {
+        Alert.alert('Erro ao resetar a senha:', error);
+      }
+    }
+  };
 
-    const handleTrocarSenha = async () => {
-        try {
-            //Verificar se as senhas coincidem
-            if (novaSenha !== confirmaSenha) {
-                Alert.alert('As senhas não coincidem');
-                return;
-            }
+  const handleTrocarSenha = async () => {
+    try {
+      //Verificar se as senhas coincidem
+      if (novaSenha !== confirmaSenha) {
+        Alert.alert('As senhas não coincidem');
+        return;
+      }
 
-            const data = {
-                email: email,
-                senha: novaSenha
-            }
+      const data = {
+        email: email,
+        senha: novaSenha,
+      };
 
-            //fazer a solicidação paea trocar a senha
-            const response = await axios.post('http://10.0.2.2:8085/api/resetsenhaprojetoGreen', data);
+      //fazer a solicidação paea trocar a senha
+      const response = await axios.post(
+        'http://10.0.2.2:8085/api/resetsenhaprojetoGreen',
+        data,
+      );
 
-            if (response.status === 200) {
-                navigation.navigate('Login');
-                Alert.alert("Senha trocada com sucesso");
-            }
-            else {
-                Alert.alert('Erro ao trocar a senha');
-            }
-        }
-        catch (error) {
-            Alert.alert('Erro ao trocar a senha', error);
-        }
-    };
+      if (response.status === 200) {
+        navigation.navigate('Login');
+        Alert.alert('Senha trocada com sucesso');
+      } else {
+        Alert.alert('Erro ao trocar a senha');
+      }
+    } catch (error) {
+      Alert.alert('Erro ao trocar a senha', error);
+    }
+  };
 
-    return (
-        <View style={styles.container}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
-                <Text style={styles.title}>Esqueceu a senha?</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder = 'Digite seu email'
-                    placeholderTextColor={"#018A23"} 
-                    value={email}
-                    onChangeText={setEmail}
-                  
-                />
-                {!mostrarFormulario && (
-                    <Button title='Resetar senha' color={'#018A23'} onPress={handleResetSenha} />
-                )}
-                {mostrarFormulario && (
-                    <>
-                        <TextInput
-                            style={styles.input}
-                            placeholder='Nova Senha'
-                            value={novaSenha}
-                            placeholderTextColor={"#018A23"}
-                            onChangeText={setNovaSenha}
-                            secureTextEntry
-                        />
-                        <TextInput
-                            style={styles.input}
-                            placeholder='Confimar Senha'
-                            value={confirmaSenha}
-                            placeholderTextColor={"#018A23"} 
-                            onChangeText={setConfirmaSenha}
-                            secureTextEntry
-                        />
-                        <Button title='Trocar Senha' onPress={handleTrocarSenha} color={"#018A23"}/>
-                    </>
-                    
-                )}
-        <Text style={styles.rememberText}>Lembrou da senha?{' '}</Text>
-        <TouchableOpacity style={styles.footerText} onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.loginText}>Faça seu login</Text>
-        </TouchableOpacity>
-
-        </View>
-    );
+      <Text style={styles.title}>Esqueceu a senha?</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Digite seu email"
+        placeholderTextColor={'#018A23'}
+        value={email}
+        onChangeText={setEmail}
+      />
+      {!mostrarFormulario && (
+        <Button
+          title="Resetar senha"
+          color={'#018A23'}
+          onPress={handleResetSenha}
+        />
+      )}
+      {mostrarFormulario && (
+        <>
+          <TextInput
+            style={styles.input}
+            placeholder="Nova Senha"
+            value={novaSenha}
+            placeholderTextColor={'#018A23'}
+            onChangeText={setNovaSenha}
+            secureTextEntry
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Confimar Senha"
+            value={confirmaSenha}
+            placeholderTextColor={'#018A23'}
+            onChangeText={setConfirmaSenha}
+            secureTextEntry
+          />
+          <Button
+            title="Trocar Senha"
+            onPress={handleTrocarSenha}
+            color={'#018A23'}
+          />
+        </>
+      )}
+      <Text style={styles.rememberText}>Lembrou da senha? </Text>
+      <TouchableOpacity
+        style={styles.footerText}
+        onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.loginText}>Faça seu login</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
     padding: 20,
     justifyContent: 'center',
@@ -172,7 +193,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  rememberText:{
+  rememberText: {
     padding: 10,
     textAlign: 'center',
   },

@@ -12,8 +12,10 @@ import {
 const papelMache = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
@@ -21,45 +23,45 @@ const papelMache = ({navigation}) => {
           <Text style={styles.header}>Máscara de papel Mache</Text>
         </View>
 
-          <Image
-            source={require('../../../../../res/img/mascara.jpg')}
-            style={styles.image}
-          />
-          <Text style={styles.subHeader}>Ingredientes:</Text>
-          <SectionList
-            sections={[
-              {
-                title: 'Máscara de Papel Mache',
-                data: [
-                  'Papel',
-                  'Cola Branca',
-                  'Água',
-                  'Uma base para Moldar, como arame ou estrutura de papelão',
-                ],
-              },
-            ]}
-            renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-            renderSectionHeader={({section}) => (
-              <Text style={styles.sectionHeader}>{section.title}</Text>
-            )}
-            keyExtractor={item => `basicListEntry-${item}`}
-          />
-          <Text style={styles.subHeader}>Modo de Preparo:</Text>
-          <Text style={styles.text}>
-            {'\t'} Prepare a Pasta: Em um recipiente, misture a cola branca com
-            água em uma proporção de aproximadamente 50/50. {'\n'} Adicione pedaços de
-            papel rasgado ou picado à mistura e mexa até obter uma pasta
-            uniforme e maleável. {'\n'} Molde a Peça: Usando a base para moldar, comece
-            a moldar a pasta de acordo com o design desejado. Se estiver usando
-            arame, você pode dar forma e estrutura à peça antes de adicionar a
-            pasta. {'\n'} Construa em Camadas: Aplique a pasta em camadas sobre a base,
-            alisando cada camada antes de adicionar a próxima. {'\n'} Isso ajudará a
-            criar uma peça resistente e durável. Lembre-se de deixar a peça
-            secar entre as camadas. {'\n'} Detalhes e Acabamentos: Após a secagem
-            completa, você pode lixar as arestas, adicionar detalhes e texturas
-            extras conforme desejado. {'\n'} Em seguida, pinte e verniz a peça para dar
-            vida às suas criações.
-          </Text>
+        <Image
+          source={require('../../../../../res/img/mascara.jpg')}
+          style={styles.image}
+        />
+        <Text style={styles.subHeader}>Ingredientes:</Text>
+        <SectionList
+          sections={[
+            {
+              title: 'Máscara de Papel Mache',
+              data: [
+                'Papel',
+                'Cola Branca',
+                'Água',
+                'Uma base para Moldar, como arame ou estrutura de papelão',
+              ],
+            },
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => (
+            <Text style={styles.sectionHeader}>{section.title}</Text>
+          )}
+          keyExtractor={item => `basicListEntry-${item}`}
+        />
+        <Text style={styles.subHeader}>Modo de Preparo:</Text>
+        <Text style={styles.text}>
+          {'\t'} Prepare a Pasta: Em um recipiente, misture a cola branca com
+          água em uma proporção de aproximadamente 50/50. {'\n'} Adicione
+          pedaços de papel rasgado ou picado à mistura e mexa até obter uma
+          pasta uniforme e maleável. {'\n'} Molde a Peça: Usando a base para
+          moldar, comece a moldar a pasta de acordo com o design desejado. Se
+          estiver usando arame, você pode dar forma e estrutura à peça antes de
+          adicionar a pasta. {'\n'} Construa em Camadas: Aplique a pasta em
+          camadas sobre a base, alisando cada camada antes de adicionar a
+          próxima. {'\n'} Isso ajudará a criar uma peça resistente e durável.
+          Lembre-se de deixar a peça secar entre as camadas. {'\n'} Detalhes e
+          Acabamentos: Após a secagem completa, você pode lixar as arestas,
+          adicionar detalhes e texturas extras conforme desejado. {'\n'} Em
+          seguida, pinte e verniz a peça para dar vida às suas criações.
+        </Text>
       </ScrollView>
     </View>
   );
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 
- text: {
+  text: {
     fontSize: 20,
     marginLeft: 8,
     marginRight: 5,

@@ -1,53 +1,89 @@
 import React from 'react';
-import { View, Text, TextInput, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 
-
-export default function Catadores({navigation}){
+export default function Catadores({navigation}) {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
 
-      <Text style={styles.title}>Encontre e converse com um catador perto de você</Text>
+      <Text style={styles.title}>
+        Encontre e converse com um catador perto de você
+      </Text>
       <View style={styles.searchContainer}>
-        <Image source={require('../../../../res/img/pesquisa.png')} style={styles.pesquisa}/>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite seu CEP"
+        <Image
+          source={require('../../../../res/img/pesquisa.png')}
+          style={styles.pesquisa}
         />
-        <Image source={require('../../../../res/img/mic.png')} style={styles.mic}/>
+        <TextInput style={styles.input} placeholder="Digite seu CEP" />
+        <Image
+          source={require('../../../../res/img/mic.png')}
+          style={styles.mic}
+        />
       </View>
       <ScrollView style={styles.list}>
         {[
-          { name: 'Alessandro Caetano', type: 'Carroça', materials: 'Papel/Papelão, Latas e Plásticos'},
-          { name: 'Pedro Amaral', type: 'Bicicleta', materials: 'Latas e Garrafas de Vidro'},
-          { name: 'Moacir Pereira', type: 'Carro', materials: 'Latas e Plásticos' },
-          { name: 'Rodolfo Alves', type: 'Bicicleta', materials: 'Garrafas de Vidro e Plásticos'},
+          {
+            name: 'Alessandro Caetano',
+            type: 'Carroça',
+            materials: 'Papel/Papelão, Latas e Plásticos',
+          },
+          {
+            name: 'Pedro Amaral',
+            type: 'Bicicleta',
+            materials: 'Latas e Garrafas de Vidro',
+          },
+          {
+            name: 'Moacir Pereira',
+            type: 'Carro',
+            materials: 'Latas e Plásticos',
+          },
+          {
+            name: 'Rodolfo Alves',
+            type: 'Bicicleta',
+            materials: 'Garrafas de Vidro e Plásticos',
+          },
         ].map((person, index) => (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Perfil')}>
-          <View key={index} style={styles.card}>
-            <Image source={require('../../../../res/img/perfilMasc.png')} style={styles.veraLucia}/>
-            <View>
-              <Text style={styles.name}>{person.name}</Text>
-              <Text style={styles.type}>Catador Autônomo - {person.type}</Text>
-              <Text style={styles.materials}>{person.materials}</Text>
-              
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Perfil')}>
+            <View key={index} style={styles.card}>
+              <Image
+                source={require('../../../../res/img/perfilMasc.png')}
+                style={styles.veraLucia}
+              />
+              <View>
+                <Text style={styles.name}>{person.name}</Text>
+                <Text style={styles.type}>
+                  Catador Autônomo - {person.type}
+                </Text>
+                <Text style={styles.materials}>{person.materials}</Text>
+              </View>
             </View>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 50,
-   backgroundColor: '#faffe4',
+    backgroundColor: '#faffe4',
   },
   backButton: {
     position: 'absolute',
@@ -104,7 +140,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 1,
@@ -134,12 +170,11 @@ const styles = StyleSheet.create({
   },
   pesquisa: {
     width: 20,
-    height: 20
+    height: 20,
   },
   veraLucia: {
     marginRight: 16,
     width: 70,
     height: 70,
-  }
-
+  },
 });

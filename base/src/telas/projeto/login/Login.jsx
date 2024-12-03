@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import axios from 'axios';
 
-export default function Login ({navigation}) {
+export default function Login({navigation}) {
   const [email, setemail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -20,7 +26,10 @@ export default function Login ({navigation}) {
       };
 
       // Enviar os dados para a API
-      const response = await axios.post('http://10.0.2.2:8085/api/loginprojeto', data);
+      const response = await axios.post(
+        'http://10.0.2.2:8085/api/loginprojeto',
+        data,
+      );
 
       //Verificar se o Login afetuado com Sucesso
       if (response.status === 201) {
@@ -29,60 +38,72 @@ export default function Login ({navigation}) {
 
         navigation.navigate('Home');
       } else {
-        Alert.alert('Erro', 'email ou Senha incorretos, Por favor, tente novamente');
+        Alert.alert(
+          'Erro',
+          'email ou Senha incorretos, Por favor, tente novamente',
+        );
       }
     } catch {
       if (error.response && error.response.status === 401) {
-        Alert.alert('Erro', 'email ou senha incorretos, por favor, tente novamente');
+        Alert.alert(
+          'Erro',
+          'email ou senha incorretos, por favor, tente novamente',
+        );
       } else {
-        Alert.alert('Erro', 'Ocorreu um erro ao fazer o Login, Por favor, tente novamente');
+        Alert.alert(
+          'Erro',
+          'Ocorreu um erro ao fazer o Login, Por favor, tente novamente',
+        );
       }
     }
   };
 
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <Text style={styles.welcomeText}>Bem-vindo de volta!</Text>
       <Text style={styles.loginPrompt}>Faça seu login</Text>
 
-       <TextInput
-          style={styles.input}
-          placeholder="email"
-          placeholderTextColor="#000"
-          onChangeText={setemail}
-          value={email}
-          keyboardType="email-address"
-        />
+      <TextInput
+        style={styles.input}
+        placeholder="email"
+        placeholderTextColor="#000"
+        onChangeText={setemail}
+        value={email}
+        keyboardType="email-address"
+      />
 
       <TextInput
-          style={styles.input}
-          placeholder="Senha"
-          placeholderTextColor="#000"
-          onChangeText={setSenha}
-          value={senha}
-          secureTextEntry
-        />
+        style={styles.input}
+        placeholder="Senha"
+        placeholderTextColor="#000"
+        onChangeText={setSenha}
+        value={senha}
+        secureTextEntry
+      />
 
       <TouchableOpacity onPress={() => navigation.navigate('ResetSenha')}>
         <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Entrar</Text>
-        </TouchableOpacity>
+        <Text style={styles.loginButtonText}>Entrar</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
-      <Text style={styles.signupPrompt}>
-        Ainda não tem uma conta? <Text style={styles.signupText}>Faça seu cadastro</Text>
-      </Text>
+        <Text style={styles.signupPrompt}>
+          Ainda não tem uma conta?{' '}
+          <Text style={styles.signupText}>Faça seu cadastro</Text>
+        </Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -161,4 +182,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-

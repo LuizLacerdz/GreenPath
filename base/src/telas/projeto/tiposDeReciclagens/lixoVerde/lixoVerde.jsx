@@ -24,10 +24,12 @@ export default function lixoVerde({navigation}) {
           styles.sidebarContainer,
           {transform: [{translateX: isOpen ? 0 : -300}]},
         ]}>
-        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}>
           {/* Back button icon */}
-        <Text style={styles.backButtonText}>{'<'}</Text>
-      </TouchableOpacity>
+          <Text style={styles.backButtonText}>{'<'}</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Text style={styles.closeButtonText}>Fechar</Text>
         </TouchableOpacity>
@@ -62,14 +64,11 @@ export default function lixoVerde({navigation}) {
   return (
     <SafeAreaView style={styles.scrollview}>
       <ScrollView>
-
         {/*  Terrario */}
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Terrário
-            </Text>
+            <Text style={styles.texto}>Terrário</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Terrario')}
@@ -88,9 +87,7 @@ export default function lixoVerde({navigation}) {
 
         <View style={styles.containerLearn}>
           <View style={styles.textocontainer}>
-            <Text style={styles.texto}>
-              Copos de garrafa{'\n'} de vidro
-            </Text>
+            <Text style={styles.texto}>Copos de garrafa{'\n'} de vidro</Text>
             <View style={styles.buttoncontainer}>
               <Button
                 onPress={() => navigation.navigate('Copo de Vidro')}
@@ -106,11 +103,10 @@ export default function lixoVerde({navigation}) {
         </View>
 
         <Button
-            onPress={() => navigation.navigate('Reciclar Vidro')}
-            style={styles.botaoReciclar}>
-            <Text color ="#000">Como Reciclar</Text>
+          onPress={() => navigation.navigate('Reciclar Vidro')}
+          style={styles.botaoReciclar}>
+          <Text color="#000">Como Reciclar</Text>
         </Button>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -123,7 +119,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-    backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },
@@ -197,7 +193,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#02df0a',
     color: 'white',
     borderRadius: 30,
-    
   },
   botaoReciclar: {
     marginTop: 20,

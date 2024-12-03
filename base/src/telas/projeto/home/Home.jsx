@@ -1,91 +1,131 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView, FlatList, Linking } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  FlatList,
+  Linking,
+} from 'react-native';
 import axios from 'axios';
 
-export default function HomeScreen ({navigation}){
-    const [data, setData] = useState([]);
+export default function HomeScreen({navigation}) {
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        axios.get("http://10.0.2.2:8085/api/listaragenda")
-            .then(response => {
-                //ordenar os dados pelo id em ordem crescente
-                const sortData = response.data.sort((a, b) => a.id - b.id);
-                setData(sortData);
-            })
-            .catch(error => {
-                console.log(JSON.stringify(error));
-            });
-    }, []);
+  useEffect(() => {
+    axios
+      .get('http://10.0.2.2:8085/api/listaragenda')
+      .then(response => {
+        //ordenar os dados pelo id em ordem crescente
+        const sortData = response.data.sort((a, b) => a.id - b.id);
+        setData(sortData);
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error));
+      });
+  }, []);
 
+  // const handleAtualizar = (id) => {
+  //     navigation.navigate('Atualizar', { id });
+  // };
 
-    // const handleAtualizar = (id) => {
-    //     navigation.navigate('Atualizar', { id });
-    // };
-
-    const renderItem = ({ item }) => (
-      <View>
-        <Text style={styles.collectionText}>
-            <Text style={styles.itemText}>{item.calendario}</Text>
-        </Text>
-        
-      </View>
-        
-      )
+  const renderItem = ({item}) => (
+    <View>
+      <Text style={styles.collectionText}>
+        <Text style={styles.itemText}>{item.calendario}</Text>
+      </Text>
+    </View>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
-    <ScrollView>
-    
-      <View>
-      {/* Header */}
-      <View style={styles.header}>
-        <Image source={require('../../../../res/img/logo.png')} style={styles.logo} />
-      </View>
-
-       <Text style={styles.welcomeText}>Bem vindo ao Green Path!</Text>
-
-      
-      <View style={styles.collectionInfo}>
-        <Text style={styles.collectionText}>
-          A próxima coleta municipal será em <Text style={styles.boldText}></Text>
-        </Text>
-        <FlatList
-                data={data}
-                renderItem={renderItem}
-                keyExtractor={item => item.id.toString()}
-                style={styles.collectionText}
+      <ScrollView>
+        <View>
+          {/* Header */}
+          <View style={styles.header}>
+            <Image
+              source={require('../../../../res/img/logo.png')}
+              style={styles.logo}
             />
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Coletas Agendadas')}>
-          <Text style={styles.buttonText}>Ver coletas</Text>
-        </TouchableOpacity>
-      </View>
+          </View>
 
-      {/* Options */}
-      <View style={styles.options}>
-        <TouchableOpacity style={styles.optionButton} onPress={() => Linking.openURL('https://maps.app.goo.gl/W8iq8JxfPijLZn2v8')}>
-          <Image source={require('../../../../res/img/local.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>Veja pontos de coleta</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Catadores')}>
-          <Image source={require('../../../../res/img/pesquisa.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>Encontrar catadores</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Reciclagem')}>
-          <Image source={require('../../../../res/img/reciclagem.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 7}}>O que posso reciclar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton} onPress={() => navigation.navigate('Agendamento')}>
-          <Image source={require('../../../../res/img/calendario.png')} style={styles.icones} />
-          <Text style={{fontWeight: "bold" , fontSize: 16 , padding: 10}}>Agendar Coleta</Text>
-        </TouchableOpacity>
-      </View>
-      </View>
+          <Text style={styles.welcomeText}>Bem vindo ao Green Path!</Text>
+
+          <View style={styles.collectionInfo}>
+            <Text style={styles.collectionText}>
+              A próxima coleta municipal será em{' '}
+              <Text style={styles.boldText}></Text>
+            </Text>
+            <FlatList
+              data={data}
+              renderItem={renderItem}
+              keyExtractor={item => item.id.toString()}
+              style={styles.collectionText}
+            />
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate('Coletas Agendadas')}>
+              <Text style={styles.buttonText}>Ver coletas</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Options */}
+          <View style={styles.options}>
+            <TouchableOpacity
+              style={styles.optionButton}
+              onPress={() =>
+                Linking.openURL('https://maps.app.goo.gl/W8iq8JxfPijLZn2v8')
+              }>
+              <Image
+                source={require('../../../../res/img/local.png')}
+                style={styles.icones}
+              />
+              <Text style={{fontWeight: 'bold', fontSize: 16, padding: 7}}>
+                Veja pontos de coleta
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.optionButton}
+              onPress={() => navigation.navigate('Catadores')}>
+              <Image
+                source={require('../../../../res/img/pesquisa.png')}
+                style={styles.icones}
+              />
+              <Text style={{fontWeight: 'bold', fontSize: 16, padding: 7}}>
+                Encontrar catadores
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.optionButton}
+              onPress={() => navigation.navigate('Reciclagem')}>
+              <Image
+                source={require('../../../../res/img/reciclagem.png')}
+                style={styles.icones}
+              />
+              <Text style={{fontWeight: 'bold', fontSize: 16, padding: 7}}>
+                O que posso reciclar
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.optionButton}
+              onPress={() => navigation.navigate('Agendamento')}>
+              <Image
+                source={require('../../../../res/img/calendario.png')}
+                style={styles.icones}
+              />
+              <Text style={{fontWeight: 'bold', fontSize: 16, padding: 10}}>
+                Agendar Coleta
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
-      </SafeAreaView>
-    
-    
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -131,7 +171,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     textAlign: 'center',
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   options: {
     flexDirection: 'row',
@@ -150,16 +190,15 @@ const styles = StyleSheet.create({
   scheduleText: {
     fontSize: 16,
     marginBottom: 10,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 
-  welcomeText:{
+  welcomeText: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
     color: '#492623',
   },
-
 
   card: {
     margin: 10,
@@ -179,4 +218,3 @@ const styles = StyleSheet.create({
     height: 45,
   },
 });
-

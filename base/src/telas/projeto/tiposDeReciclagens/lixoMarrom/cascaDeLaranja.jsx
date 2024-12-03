@@ -12,8 +12,10 @@ import {
 const cascaDeBatata = ({navigation}) => {
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          {/* Back button icon */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        {/* Back button icon */}
         <Text style={styles.backButtonText}>{'<'}</Text>
       </TouchableOpacity>
       <ScrollView style={styles.scrollView}>
@@ -26,8 +28,7 @@ const cascaDeBatata = ({navigation}) => {
             style={styles.image}
           />
           <Text style={styles.text}>
-            {'\n'}
-                  6 Laranja
+            {'\n'}6 Laranja
             {'\n'}Açúcar (o mesmo peso das cascas)
             {'\n'}Cravo e canela em pau a gosto
             {'\n'}
@@ -36,16 +37,20 @@ const cascaDeBatata = ({navigation}) => {
           <Text style={styles.text}>
             Raspar (passar a faca) o sumo das laranjas.
             {'\n'}Retire a casca.
-            {'\n'}Para retirar a casca, corte as laranjas em quatro e retire os gomos.
+            {'\n'}Para retirar a casca, corte as laranjas em quatro e retire os
+            gomos.
             {'\n'}Use só a casca com a parte em branco.
             {'\n'}Trocar a água várias vezes.
             {'\n'}Cortar as cascas pelo meio, depois em fatias finas.
-            {'\n'}Põe em panela, cobre com água e ferve por mais ou menos 15 minutos.
+            {'\n'}Põe em panela, cobre com água e ferve por mais ou menos 15
+            minutos.
             {'\n'}Escorrer a água.
             {'\n'}Pesar.
-            {'\n'}Colocar o mesmo peso das cascas em quantidade de açúcar, o cravo e a canela.
+            {'\n'}Colocar o mesmo peso das cascas em quantidade de açúcar, o
+            cravo e a canela.
             {'\n'}Levar ao fogo para apurar.
-            {'\n'}Simples de fazer, quando você começa comer não quer mais parar.
+            {'\n'}Simples de fazer, quando você começa comer não quer mais
+            parar.
           </Text>
         </View>
       </ScrollView>
@@ -58,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#faffe4',
   },
-   backButton: {
+  backButton: {
     top: 10,
     left: 20,
   },

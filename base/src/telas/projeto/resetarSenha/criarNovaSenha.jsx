@@ -1,7 +1,13 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 
-export default function NovaSenha ({navigation}){
+export default function NovaSenha({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.backButton}>{'<'}</Text>
@@ -17,7 +23,7 @@ export default function NovaSenha ({navigation}){
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
