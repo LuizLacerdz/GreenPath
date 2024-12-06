@@ -22,7 +22,7 @@ const userController = {
     try {
       await clientController.registerCalendar(
         id,
-        calendario,
+        data,
         materiais,
         peso,
         observacao
